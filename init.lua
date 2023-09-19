@@ -25,6 +25,7 @@ local plugins = {
   require("xproger.plugins.catppuccin"),
   require("xproger.plugins.treesitter"),
   require("xproger.plugins.nvimtree"),
+  require("xproger.plugins.barbar"),
 }
 -- End of plugins
 
