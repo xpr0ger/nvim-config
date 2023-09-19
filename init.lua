@@ -27,6 +27,7 @@ local plugins = {
   require("xproger.plugins.neotree"),
   require("xproger.plugins.feline"),
   require("xproger.plugins.barbar"),
+  require("xproger.plugins.mason-lspconfig"),
 }
 -- End of plugins
 
