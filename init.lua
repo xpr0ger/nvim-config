@@ -16,6 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Custom remapping
 require("xproger.remap")
+require("xproger.settings")
 
 -- Plugins
 local plugins = {
@@ -23,9 +24,11 @@ local plugins = {
   require("xproger.plugins.whichkey"),
   require("xproger.plugins.catppuccin"),
   require("xproger.plugins.treesitter"),
+  require("xproger.plugins.nvimtree"),
 }
 -- End of plugins
 
 require("lazy").setup(plugins)
 require("xproger.plugins.after.catppuccin")
 require("xproger.plugins.after.telescope")
+require("xproger.plugins.after.nvtree")
