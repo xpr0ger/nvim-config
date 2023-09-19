@@ -24,7 +24,8 @@ local plugins = {
   require("xproger.plugins.whichkey"),
   require("xproger.plugins.catppuccin"),
   require("xproger.plugins.treesitter"),
-  require("xproger.plugins.nvimtree"),
+  require("xproger.plugins.neotree"),
+  require("xproger.plugins.feline"),
   require("xproger.plugins.barbar"),
 }
 -- End of plugins
@@ -32,4 +33,4 @@ local plugins = {
 require("lazy").setup(plugins)
 require("xproger.plugins.after.catppuccin")
 require("xproger.plugins.after.telescope")
-require("xproger.plugins.after.nvtree")
+require("xproger.plugins.after.neotree")
