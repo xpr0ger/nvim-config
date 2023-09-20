@@ -32,6 +32,7 @@ local plugins = {
   require("xproger.plugins.nvim-notify"),
   require("xproger.plugins.nvim-cmp"),
   require("xproger.plugins.toggleterm"),
+  require("xproger.plugins.mason-null-ls"),
 }
 -- End of plugins
 
@@ -39,5 +40,6 @@ require("lazy").setup(plugins)
 require("xproger.plugins.after.catppuccin")
 require("xproger.plugins.after.telescope")
 require("xproger.plugins.after.neotree")
+require("xproger.plugins.after.mason-null-ls")
 
 
