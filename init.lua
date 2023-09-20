@@ -28,6 +28,10 @@ local plugins = {
   require("xproger.plugins.feline"),
   require("xproger.plugins.barbar"),
   require("xproger.plugins.mason-lspconfig"),
+  require("xproger.plugins.dressing"),
+  require("xproger.plugins.nvim-notify"),
+  require("xproger.plugins.nvim-cmp"),
+  require("xproger.plugins.toggleterm"),
 }
 -- End of plugins
 
@@ -35,3 +39,5 @@ require("lazy").setup(plugins)
 require("xproger.plugins.after.catppuccin")
 require("xproger.plugins.after.telescope")
 require("xproger.plugins.after.neotree")
+
+
