@@ -4,28 +4,23 @@ return {
 		"williamboman/mason.nvim",
 		"neovim/nvim-lspconfig",
 	},
-	init = function()
-		require("mason").setup()
-		require("mason-lspconfig").setup({
-			ensure_installed = { "lua_ls", "vimls" },
-		})
+	opts = {
+		ensure_installed = { "lua_ls", "vimls" },
+	},
+	config = function(LazyPlugin, opts)
+		mason_lspconfig = require("mason-lspconfig")
+		mason_lspconfig.setup(opts)
 
-		local nvim_cmp_capabilities = require("cmp_nvim_lsp").default_capabilities()
-		require("mason-lspconfig").setup_handlers({
-			-- The first entry (without a key) will be the default handler
-			-- and will be called for each installed server that doesn't have
-			-- a dedicated handler.
-			function(server_name) -- default handler (optional)
-				require("lspconfig")[server_name].setup({
-					capabilities = nvim_cmp_capabilities,
+		local cmp_caps = require("cmp_nvim_lsp").default_capabilities()
+		local lspconfig = require("lspconfig")
+
+		mason_lspconfig.setup_handlers({
+			function(server_name)
+				lspconfig[server_name].setup({
+					capabilities = cmp_caps,
 				})
 			end,
-			-- Next, you can provide a dedicated handler for specific servers.
-			-- For example, a handler override for the `rust_analyzer`:
-			-- ["rust_analyzer"] = function ()
-			--    require("rust-tools").setup {}
-			-- end
 		})
-	   end,
-
+	end,
+	priority = 41,
 }
