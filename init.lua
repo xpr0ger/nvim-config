@@ -40,4 +40,3 @@ local plugins = {
 -- End of plugins
 
 require("lazy").setup(plugins)
-require("xproger.plugins.after.telescope")
