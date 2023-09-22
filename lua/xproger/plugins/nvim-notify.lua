@@ -5,11 +5,13 @@ return {
         "lewis6991/gitsigns.nvim",
     },
     version = "^3.0.0",
-    init = function()
+    opts = {},
+    config = function(LazyPlugins, opts)
         local notify = require("notify")
-        notify.setup()
-        vim.notify = notify
+        local telescope = require("telescope")
 
-        require("telescope").load_extension("notify")
+        notify.setup(opts)
+        vim.notify = notify
+        telescope.load_extension("notify")
     end,
 }
