@@ -36,6 +36,7 @@ local plugins = {
     require("xproger.plugins.null-ls"),
     require("xproger.plugins.mason"),
     require("xproger.plugins.nvim-lspconfig"),
+    require("xproger.plugins.autopairs"),
 }
 -- End of plugins
 

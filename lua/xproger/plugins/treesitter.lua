@@ -19,6 +19,9 @@ return {
             "regex",
             "toml",
         },
+        highlight = {
+            enable = true,
+        },
     },
     config = function(LazyPlugins, opts)
         ts_config = require("nvim-treesitter.configs")
