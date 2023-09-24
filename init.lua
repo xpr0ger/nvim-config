@@ -25,7 +25,7 @@ local plugins = {
     require("xproger.plugins.catppuccin"),
     require("xproger.plugins.treesitter"),
     require("xproger.plugins.neotree"),
-    require("xproger.plugins.feline"),
+    require("xproger.plugins.lualine"),
     require("xproger.plugins.barbar"),
     require("xproger.plugins.mason-lspconfig"),
     require("xproger.plugins.dressing"),
@@ -37,6 +37,7 @@ local plugins = {
     require("xproger.plugins.mason"),
     require("xproger.plugins.nvim-lspconfig"),
     require("xproger.plugins.autopairs"),
+    require("xproger.plugins.navic"),
 }
 -- End of plugins
 
