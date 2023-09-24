@@ -1,5 +1,3 @@
-local test = {}
-test["neo-tree"] = ""
 return {
     "nvim-lualine/lualine.nvim",
     dependencies = {
@@ -37,8 +35,4 @@ return {
             },
         },
     },
-    config = function(LazyPlugins, opts)
-        lualine = require("lualine")
-        lualine.setup(opts)
-    end,
 }
