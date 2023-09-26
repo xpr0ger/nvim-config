@@ -40,6 +40,7 @@ local plugins = {
     require("xproger.plugins.navic"),
     require("xproger.plugins.hover"),
     require("xproger.plugins.gitsigns"),
+    require("xproger.plugins.neodev"),
 }
 -- End of plugins
 

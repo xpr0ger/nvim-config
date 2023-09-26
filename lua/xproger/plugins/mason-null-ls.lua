@@ -12,6 +12,8 @@ return {
             "golangci_lint",
             "json",
             "yaml",
+            "sonarlint_language_server",
+            "bash",
         },
         handlers = {},
     },
