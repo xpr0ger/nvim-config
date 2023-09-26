@@ -10,6 +10,8 @@ return {
             "stylua",
             "cspell",
             "golangci_lint",
+            "json",
+            "yaml",
         },
         handlers = {},
     },

@@ -18,6 +18,7 @@ return {
             "ssh_config",
             "regex",
             "toml",
+            "json",
         },
         highlight = {
             enable = true,

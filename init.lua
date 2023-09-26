@@ -38,6 +38,8 @@ local plugins = {
     require("xproger.plugins.nvim-lspconfig"),
     require("xproger.plugins.autopairs"),
     require("xproger.plugins.navic"),
+    require("xproger.plugins.hover"),
+    require("xproger.plugins.gitsigns"),
 }
 -- End of plugins
 

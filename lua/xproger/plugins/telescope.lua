@@ -12,20 +12,23 @@ local function global_bindings(builtin)
     }
 end
 
-local function lsp_bindings(builtin)
+local function lsp_bindings(builtin, buffer)
     return {
         f = {
-            r = { builtin.lsp_references, "References", noremap = false },
+            buffer = buffer,
+            r = { builtin.lsp_references, "References", noremap = false, buffer = buffer },
             s = {
+                buffer = buffer,
                 name = "Symbols",
-                w = { builtin.lsp_workspace_symbols, "Workspace symbols", noremap = false },
-                b = { builtin.lsp_document_symbols, "Document symbols", noremap = false },
+                w = { builtin.lsp_workspace_symbols, "Workspace symbols", noremap = false, buffer = buffer },
+                b = { builtin.lsp_document_symbols, "Document symbols", noremap = false, buffer = buffer },
             },
-            i = { builtin.lsp_implementations, "Implementations", noremap = false },
+            i = { builtin.lsp_implementations, "Implementations", noremap = false, buffer = buffer },
             d = {
+                buffer = buffer,
                 name = "Definitions",
-                d = { builtin.lsp_definitions, "Definitions", noremap = false },
-                t = { builtin.lsp_type_definitions, "Type Definitions", noremap = false },
+                d = { builtin.lsp_definitions, "Definitions", noremap = false, buffer = buffer },
+                t = { builtin.lsp_type_definitions, "Type Definitions", noremap = false, buffer = buffer },
             },
         },
     }
@@ -48,7 +51,7 @@ return {
         vim.api.nvim_create_autocmd("LspAttach", {
             group = vim.api.nvim_create_augroup("UserTelescopeLsp", {}),
             callback = function(ev)
-                wk.register(lsp_bindings(builtin), opts_bindings)
+                wk.register(lsp_bindings(builtin, ev.buf), opts_bindings)
             end,
         })
     end,
