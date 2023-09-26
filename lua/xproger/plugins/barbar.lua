@@ -21,7 +21,7 @@ return {
         local barbar = require("barbar")
         barbar.setup(opts)
 
-        wk = require("which-key")
+        local wk = require("which-key")
         wk.register({
             t = {
                 name = "Tabs",
