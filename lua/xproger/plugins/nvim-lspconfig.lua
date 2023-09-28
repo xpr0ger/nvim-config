@@ -18,7 +18,7 @@ local function lsp_bindings(buffer)
 				name = "Go To",
 				D = { vim.lsp.buf.declaration, "Go To Declaration", noremap = false, buffer = buffer },
 				d = { vim.lsp.buf.definition, "Go To Definition", noremap = false, buffer = buffer },
-				["dt"] = { vim.lsp.buf.type_definition, "Go To Type Definition", noremap = false, buffer = buffer },
+				t = { vim.lsp.buf.type_definition, "Go To Type Definition", noremap = false, buffer = buffer },
 				r = { vim.lsp.buf.references, "Go To References", noremap = false, buffer = buffer },
 				i = { vim.lsp.buf.implementation, "Go To Implementation", noremap = false, buffer = buffer },
 			},
