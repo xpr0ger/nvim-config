@@ -19,29 +19,7 @@ require("xproger.remap")
 require("xproger.settings")
 
 -- Plugins
-local plugins = {
-    require("xproger.plugins.telescope"),
-    require("xproger.plugins.whichkey"),
-    require("xproger.plugins.catppuccin"),
-    require("xproger.plugins.treesitter"),
-    require("xproger.plugins.neotree"),
-    require("xproger.plugins.lualine"),
-    require("xproger.plugins.barbar"),
-    require("xproger.plugins.mason-lspconfig"),
-    require("xproger.plugins.dressing"),
-    require("xproger.plugins.nvim-notify"),
-    require("xproger.plugins.nvim-cmp"),
-    require("xproger.plugins.toggleterm"),
-    require("xproger.plugins.mason-null-ls"),
-    require("xproger.plugins.null-ls"),
-    require("xproger.plugins.mason"),
-    require("xproger.plugins.nvim-lspconfig"),
-    require("xproger.plugins.autopairs"),
-    require("xproger.plugins.navic"),
-    require("xproger.plugins.hover"),
-    require("xproger.plugins.gitsigns"),
-    require("xproger.plugins.neodev"),
-}
--- End of plugins
-
-require("lazy").setup(plugins)
+plugins = require("xproger.plugins")
+local utils_plugins = require("xproger.utils.plugins")
+local plugins_v2 = utils_plugins.loadPlugins("lua/xproger/plugins/*.lua")
+require("lazy").setup(plugins_v2)
