@@ -23,6 +23,9 @@ return({
         highlight = {
             enable = true,
         },
+        matchup = {
+            enabled = true,
+        }
     },
     config = function(LazyPlugins, opts)
         ts_config = require("nvim-treesitter.configs")
