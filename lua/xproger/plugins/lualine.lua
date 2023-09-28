@@ -12,6 +12,12 @@ return {
             section_separators = { left = " ", right = " " },
             disabled_filetypes = {
                 "neo-tree",
+                "dapui_watches",
+                "dapui_stacks",
+                "dapui_breakpoints",
+                "dapui_scopes",
+                "dapui_console",
+                "dap-repl",
             },
         },
         -- OR in winbar

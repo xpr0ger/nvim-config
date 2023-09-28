@@ -1,6 +1,6 @@
 local neotest_bindings = function(neotest, buffer)
     return {
-        t = {
+        T = {
             name = "Tests",
             c = { neotest.run.run, "Run current test", noremap = false, buffer = buffer },
             d = {

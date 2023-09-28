@@ -8,5 +8,5 @@ vim.keymap.set({ "n", "i" }, "<C-h>", "<C-w>h", { desc = "Move to left window" }
 vim.keymap.set({ "n", "i" }, "<C-j>", "<C-w>j", { desc = "Move to bottom window" })
 vim.keymap.set({ "n", "i" }, "<C-k>", "<C-w>k", { desc = "Move to top window" })
 
-vim.keymap.set({ "n", "i" }, "<leader>]b", "<cmd>bn<cr>", { desc = "Next buffer" })
-vim.keymap.set({ "n", "i" }, "<leader>[b", "<cmd>bp<cr>", { desc = "Prev buffer" })
+vim.keymap.set({ "n"}, "<leader>]b", "<cmd>bn<cr>", { desc = "Next buffer" })
+vim.keymap.set({ "n" }, "<leader>[b", "<cmd>bp<cr>", { desc = "Prev buffer" })

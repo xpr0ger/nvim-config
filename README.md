@@ -2,5 +2,9 @@
 Neovim confiugration
 
 ## TODO:
-[ ] dap-go
 [ ] nvim-coverage
+
+## Requirements
+### Applications
+* ripgrep
+* fd
