@@ -14,6 +14,11 @@ return {
             "yaml",
             "sonarlint_language_server",
             "bash",
+            "go",
+            "goimports-reviser",
+            "golangci_lint",
+            "staticcheck",
+            "revive"
         },
         handlers = {},
     },

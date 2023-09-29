@@ -5,7 +5,13 @@ return {
         "neovim/nvim-lspconfig",
     },
     opts = {
-        ensure_installed = { "lua_ls", "vimls", "gopls", "jsonls", "bashls" },
+        ensure_installed = {
+            "lua_ls",
+            "vimls",
+            "gopls",
+            "jsonls",
+            "bashls",
+        },
     },
     config = function(LazyPlugin, opts)
         mason_lspconfig = require("mason-lspconfig")
