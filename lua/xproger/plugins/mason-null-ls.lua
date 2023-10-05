@@ -18,7 +18,7 @@ return {
             "goimports-reviser",
             "golangci_lint",
             "staticcheck",
-            "revive"
+            "revive",
         },
         handlers = {},
     },

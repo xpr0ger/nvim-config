@@ -1,7 +1,14 @@
-local function gitsigns_bindings_normal(gs, buffer)
+local function gitsigns_bindings_normal(gs, telescope_builtin)
     return {
-        h = {
+        g = {
             name = "Git",
+            g = {
+                name = "Telescope",
+                c = { telescope_builtin.git_commits, "Commits", noremap = false },
+                b = { telescope_builtin.git_branches, "Branches", noremap = false },
+                s = { telescope_builtin.git_status, "Status", noremap = false },
+                S = { telescope_builtin.git_stashes, "Stashes", noremap = false },
+            },
             ["]c"] = {
                 function()
                     if vim.wo.diff then
@@ -14,7 +21,6 @@ local function gitsigns_bindings_normal(gs, buffer)
                 end,
                 "Next hunk",
                 noremap = false,
-                buffer = buffer,
             },
             ["[c"] = {
                 function()
@@ -28,39 +34,36 @@ local function gitsigns_bindings_normal(gs, buffer)
                 end,
                 "Prev hunk",
                 noremap = false,
-                buffer = buffer,
             },
-            s = { gs.stage_hunk, "Stage hunk", noremap = false, buffer = buffer },
-            r = { gs.reset_hunk, "Reset hunk", noremap = false, buffer = buffer },
-            S = { gs.stage_buffer, "Stage buffer", noremap = false, buffer = buffer },
-            u = { gs.undo_stage_hunk, "Undo stage hunk", noremap = false, buffer = buffer },
-            R = { gs.reset_buffer, "Reset buffer", noremap = false, buffer = buffer },
-            p = { gs.preview_hunk, "Preview hunk", noremap = false, buffer = buffer },
+            s = { gs.stage_hunk, "Stage hunk", noremap = false },
+            r = { gs.reset_hunk, "Reset hunk", noremap = false },
+            S = { gs.stage_buffer, "Stage buffer", noremap = false },
+            u = { gs.undo_stage_hunk, "Undo stage hunk", noremap = false },
+            R = { gs.reset_buffer, "Reset buffer", noremap = false },
+            p = { gs.preview_hunk, "Preview hunk", noremap = false },
             b = {
                 function()
                     gs.blame_line({ full = true })
                 end,
                 "Blame current line",
                 noremap = false,
-                buffer = buffer,
             },
-            ["tb"] = { gs.toggle_current_line_blame, "Toggle current line blame", noremap = false, buffer = buffer },
-            d = { gs.diffthis, "Diff current file", noremap = false, buffer = buffer },
+            ["tb"] = { gs.toggle_current_line_blame, "Toggle current line blame", noremap = false },
+            d = { gs.diffthis, "Diff current file", noremap = false },
             D = {
                 function()
                     gs.diffthis("~")
                 end,
                 "Diff current file",
                 noremap = false,
-                buffer = buffer,
             },
-            ["td"] = { gs.toggle_deleted, "Toggle deleted", noremap = false, buffer = buffer },
-            i = { gs.select_hunk, "Select hunk", noremap = false, buffer = buffer, mode = { "o", "x" } },
+            ["td"] = { gs.toggle_deleted, "Toggle deleted", noremap = false },
+            i = { gs.select_hunk, "Select hunk", noremap = false, mode = { "o", "x" } },
         },
     }
 end
 
-local function gitsigns_bindings_visual(gs, buffer)
+local function gitsigns_bindings_visual(gs)
     return {
         h = {
             name = "Git",
@@ -70,7 +73,6 @@ local function gitsigns_bindings_visual(gs, buffer)
                 end,
                 "Stage hunk",
                 noremap = false,
-                buffer = buffer,
                 mode = "v",
             },
             r = {
@@ -79,7 +81,6 @@ local function gitsigns_bindings_visual(gs, buffer)
                 end,
                 "Reset hunk",
                 noremap = false,
-                buffer = buffer,
                 mode = "v",
             },
         },
@@ -96,10 +97,11 @@ return {
     config = function(LazyPlugins, opts)
         local gs = require("gitsigns")
         local wk = require("which-key")
-        opts["on_attach"] = function(buffer)
-            wk.register(gitsigns_bindings_normal(gs, buffer), binding_opts)
-            wk.register(gitsigns_bindings_visual(gs, buffer), binding_opts)
-        end
+        local telescope_builtin = require("telescope.builtin")
+
+        wk.register(gitsigns_bindings_normal(gs, telescope_builtin), binding_opts)
+        wk.register(gitsigns_bindings_visual(gs), binding_opts)
+
         gs.setup(opts)
     end,
 }
