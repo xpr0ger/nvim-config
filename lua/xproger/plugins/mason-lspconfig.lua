@@ -21,6 +21,12 @@ return {
         local lspconfig = require("lspconfig")
         local navic = require("nvim-navic")
 
+        
+        cmp_caps.textDocument.foldingRange = {
+            dynamicRegistration = false,
+            lineFoldingOnly = true,
+        }
+
         mason_lspconfig.setup_handlers({
             function(server_name)
                 lspconfig[server_name].setup({
