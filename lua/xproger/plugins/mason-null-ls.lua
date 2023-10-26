@@ -19,6 +19,7 @@ return {
             "golangci_lint",
             "staticcheck",
             "revive",
+            "shellharden",
         },
         handlers = {},
     },
