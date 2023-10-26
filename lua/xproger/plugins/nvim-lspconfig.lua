@@ -43,7 +43,7 @@ local function lsp_bindings(buffer, telescope_builtin)
             s = {
                 name = "Symbols",
                 d = { telescope_builtin.lsp_document_symbols, "Document symbols", noremap = false, buffer = buffer },
-                w = { telescope_builtin.lsp_workspace_symbols, "Document symbols", noremap = false, buffer = buffer },
+                w = { telescope_builtin.lsp_dynamic_workspace_symbols, "Document symbols", noremap = false, buffer = buffer },
             },
             w = {
                 Name = "Workspace",
