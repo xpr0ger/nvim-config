@@ -5,7 +5,7 @@ local neotest_bindings = function(neotest, buffer)
             c = { neotest.run.run, "Run current test", noremap = false, buffer = buffer },
             d = {
                 function()
-                    endneotest.run.run(vim.fn.expand("%"))
+                    neotest.run.run(vim.fn.expand("%"))
                 end,
                 "Run test in directory",
                 noremap = false,
@@ -48,7 +48,8 @@ return {
                         test_table = true,
                     },
                     args = {
-                        "-tags=test",
+                        "-tags=tests",
+                        "-coverprofile=" .. vim.fn.getcwd() .. "/out/cover.out",
                     },
                 }),
             },
