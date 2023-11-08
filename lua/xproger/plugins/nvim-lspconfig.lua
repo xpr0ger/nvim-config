@@ -17,8 +17,8 @@ local function lsp_bindings(buffer, telescope_builtin)
             g = {
                 name = "Go To",
                 D = { vim.lsp.buf.declaration, "Go To Declaration", noremap = false, buffer = buffer },
-                d = { telescope_builtin.lsp_definition, "Go To Definition", noremap = false, buffer = buffer },
-                t = { telescope_builtin.lsp_type_definition, "Go To Type Definition", noremap = false, buffer = buffer },
+                d = { vim.lsp.buf.definition, "Go To Definition", noremap = false, buffer = buffer },
+                t = { vim.lsp.buf.type_definition, "Go To Type Definition", noremap = false, buffer = buffer },
                 r = { telescope_builtin.lsp_references, "Go To References", noremap = false, buffer = buffer },
                 i = { telescope_builtin.lsp_implementations, "Go To Implementation", noremap = false, buffer = buffer },
                 c = {
