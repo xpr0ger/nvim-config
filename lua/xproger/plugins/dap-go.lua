@@ -1,8 +1,16 @@
 return {
     "leoluz/nvim-dap-go",
     opts = {
+        dap_configurations = {
+            {
+                type = "go",
+                name = "Attache mode",
+                mode = "remote",
+                request = "attache",
+            },
+        },
         delve = {
-            build_flags = "-tags=test",
+            build_flags = "-tags=tests",
         },
     },
     config = function(LazyPlugins, opts)
