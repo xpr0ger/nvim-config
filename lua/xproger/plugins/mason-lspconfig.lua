@@ -11,6 +11,10 @@ return {
             "gopls",
             "jsonls",
             "bashls",
+            "html",
+            "cssls",
+            "templ",
+            "denols",
         },
     },
     config = function(LazyPlugin, opts)
