@@ -48,7 +48,7 @@ return {
                         test_table = true,
                     },
                     args = {
-                        "-tags=tests",
+                        "-tags=tests integration test mock lasting",
                         "-coverprofile=" .. vim.fn.getcwd() .. "/out/cover.out",
                     },
                 }),

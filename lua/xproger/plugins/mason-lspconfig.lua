@@ -41,7 +41,7 @@ return {
                 if server_name == "gopls" then
                     config["settings"] = {
                         gopls = {
-                            buildFlags = { "-tags=tests" },
+                            buildFlags = { "-tags=tests integration test mock lasting" },
                         },
                     }
                 end

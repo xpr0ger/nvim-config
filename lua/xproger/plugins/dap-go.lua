@@ -10,7 +10,7 @@ return {
             },
         },
         delve = {
-            build_flags = "-tags=tests",
+            build_flags = "-tags=tests integration test mock lasting",
         },
     },
     config = function(LazyPlugins, opts)
