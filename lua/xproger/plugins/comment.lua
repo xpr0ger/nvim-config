@@ -26,7 +26,7 @@ return {
         end,
     },
 
-    config = function(LazyPlugins, opts)
+    config = function(_, opts)
         local comment = require("Comment")
         comment.setup(opts)
     end,

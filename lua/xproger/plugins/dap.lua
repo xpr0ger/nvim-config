@@ -62,7 +62,7 @@ local binding_opts = { prefix = "<leader>" }
 return {
     "mfussenegger/nvim-dap",
     opts = {},
-    config = function(LazyPlugins, opts)
+    config = function(_, _)
         local dap = require("dap")
 
         local wk = require("which-key")

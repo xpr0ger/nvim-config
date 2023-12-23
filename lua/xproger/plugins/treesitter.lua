@@ -2,6 +2,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" },
     build = ":TSUpdate",
+    main = "nvim-treesitter.configs",
     opts = {
         ensure_installed = {
             "lua",
@@ -32,8 +33,4 @@ return {
             enabled = true,
         },
     },
-    config = function(LazyPlugins, opts)
-        ts_config = require("nvim-treesitter.configs")
-        ts_config.setup(opts)
-    end,
 }

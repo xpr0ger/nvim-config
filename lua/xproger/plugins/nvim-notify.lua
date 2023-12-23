@@ -6,7 +6,7 @@ return {
     },
     version = "^3.0.0",
     opts = {},
-    config = function(LazyPlugins, opts)
+    config = function(_, opts)
         local notify = require("notify")
         local telescope = require("telescope")
 

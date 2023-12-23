@@ -4,7 +4,7 @@ return {
         "kevinhwang91/promise-async",
     },
     opts = {},
-    config = function(LazyPlugins, opts)
+    config = function(_, opts)
         local ufo = require("ufo")
         local wk = require("which-key")
 

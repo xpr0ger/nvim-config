@@ -94,7 +94,7 @@ local binding_opts = {
 return {
     "lewis6991/gitsigns.nvim",
     opts = {},
-    config = function(LazyPlugins, opts)
+    config = function(_, opts)
         local gs = require("gitsigns")
         local wk = require("which-key")
         local telescope_builtin = require("telescope.builtin")

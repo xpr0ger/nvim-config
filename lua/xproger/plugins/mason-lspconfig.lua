@@ -17,8 +17,8 @@ return {
             "denols",
         },
     },
-    config = function(LazyPlugin, opts)
-        mason_lspconfig = require("mason-lspconfig")
+    config = function(_, opts)
+        local mason_lspconfig = require("mason-lspconfig")
         mason_lspconfig.setup(opts)
 
         local cmp_caps = require("cmp_nvim_lsp").default_capabilities()
@@ -41,7 +41,7 @@ return {
                 if server_name == "gopls" then
                     config["settings"] = {
                         gopls = {
-                            buildFlags = { "-tags=tests integration test mock lasting" },
+                            buildFlags = { "-tags='tests integration test mock lasting'" },
                         },
                     }
                 end

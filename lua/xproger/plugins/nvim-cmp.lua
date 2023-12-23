@@ -17,7 +17,8 @@ return {
     },
     config = function()
         local cmp = require("cmp")
-        opts = {
+        -- TODO: Move to the dedicated plugin property
+        local opts = {
             snippet = {
                 expand = function(args)
                     vim.fn["vsnip#anonymous"](args.body)

@@ -1,8 +1,8 @@
 return {
     "folke/which-key.nvim",
     event = "VeryLazy",
-    config = function(LazyPlugins, opts)
-        vk = require("which-key")
+    config = function(_, opts)
+        local vk = require("which-key")
         vk.setup(opts)
 
         vim.o.timeout = true

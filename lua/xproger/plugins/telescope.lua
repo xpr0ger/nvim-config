@@ -19,7 +19,7 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     branch = "0.1.x",
     opts = {},
-    config = function(LazyPlugins, opts)
+    config = function(_, opts)
         require("telescope").setup(opts)
         local wk = require("which-key")
         local builtin = require("telescope.builtin")

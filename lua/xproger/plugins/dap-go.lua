@@ -10,10 +10,10 @@ return {
             },
         },
         delve = {
-            build_flags = "-tags=tests integration test mock lasting",
+            build_flags = "-tags='tests integration test mock lasting'",
         },
     },
-    config = function(LazyPlugins, opts)
+    config = function(_, opts)
         local dap_go = require("dap-go")
         dap_go.setup(opts)
 

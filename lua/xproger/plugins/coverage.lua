@@ -11,7 +11,7 @@ return {
         },
         lang = {
             go = {
-                coverage_file = vim.fn.getcwd() .. "/out/cover.out",
+                coverage_file = vim.fn.getcwd() .. "/build/cover.out",
             },
         },
     },

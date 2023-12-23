@@ -17,7 +17,7 @@ return {
             ["neo-tree"] = { event = "BufWipeout" },
         },
     },
-    config = function(LazyPlugin, opts)
+    config = function(_, opts)
         local barbar = require("barbar")
         barbar.setup(opts)
 

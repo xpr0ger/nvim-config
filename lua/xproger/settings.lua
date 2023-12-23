@@ -5,12 +5,14 @@ vim.o.shiftwidth = 4
 vim.o.termguicolors = true
 vim.wo.relativenumber = true
 vim.o.cursorline = true
-vim.opt.listchars = {space = "·",
+vim.opt.listchars = {
+    space = "·",
     tab = "╴╴󰌒",
     eol = "󰌑",
     nbsp = "␣",
     trail = "•",
     extends = "⟩",
-    precedes = "⟨"}
+    precedes = "⟨",
+}
 vim.opt.list = true
 vim.opt.showbreak = "↪"

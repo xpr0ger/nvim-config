@@ -23,7 +23,7 @@ local neotest_bindings = function(neotest, buffer)
                 function()
                     neotest.run.stop()
                 end,
-                "Run project tests",
+                "Stop tests",
                 noremap = false,
                 buffer = buffer,
             },
@@ -41,15 +41,16 @@ return {
     },
 
     config = function()
-        opts = {
+        -- TODO: Move to dedicated property of the plugin configuration
+        local opts = {
             adapters = {
                 require("neotest-go")({
                     experimental = {
                         test_table = true,
                     },
                     args = {
-                        "-tags=tests integration test mock lasting",
-                        "-coverprofile=" .. vim.fn.getcwd() .. "/out/cover.out",
+                        "-tags='tests integration test mock lasting'",
+                        "-coverprofile=" .. vim.fn.getcwd() .. "/build/cover.out",
                     },
                 }),
             },

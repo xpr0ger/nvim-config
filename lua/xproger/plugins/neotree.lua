@@ -16,10 +16,18 @@ return {
             },
             group_empty_dirs = true,
         },
+        event_handlers = {
+            {
+                event = "file_opened",
+                handler = function(_)
+                    require("neo-tree.command").execute({ action = "close" })
+                end,
+            },
+        },
     },
-    config = function(LazyPlugins, opts)
+    config = function(_, opts)
         require("neo-tree").setup(opts)
-        wk = require("which-key")
+        local wk = require("which-key")
         wk.register({
             e = {
                 name = "Explore",

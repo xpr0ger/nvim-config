@@ -6,7 +6,7 @@ return {
         end,
         title = true,
     },
-    config = function(LazyPlugins, opts)
+    config = function(_, opts)
         local hover = require("hover")
 
         local wk = require("which-key")
