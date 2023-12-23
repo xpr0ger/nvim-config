@@ -42,6 +42,7 @@ return {
 
     config = function()
         -- TODO: Move to dedicated property of the plugin configuration
+        wk = require("which-key")
         local opts = {
             adapters = {
                 require("neotest-go")({
