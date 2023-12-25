@@ -41,7 +41,7 @@ return {
                 if server_name == "gopls" then
                     config["settings"] = {
                         gopls = {
-                            buildFlags = { "-tags='tests integration test mock lasting'" },
+                            buildFlags = { require("xproger.config.golang").build_tags },
                         },
                     }
                 end

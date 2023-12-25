@@ -1,12 +1,18 @@
+local function with_current_word(fn)
+    return function()
+        fn({ default_text = vim.fn.expand("<cword>") or "" })
+    end
+end
+
 local function global_bindings(builtin)
     return {
         f = {
             name = "Find (Telescope)",
             f = { builtin.find_files, "File", noremap = false },
-            w = { builtin.live_grep, "Word", noremap = false },
+            w = { with_current_word(builtin.live_grep), "Word", noremap = false },
             b = { builtin.buffers, "Buffers", noremap = false },
             h = { builtin.help_tags, "Help", noremap = false },
-            W = { builtin.string_grep, "Current word", noremap = false },
+            W = { with_current_word(builtin.grep_string), "Current word", noremap = false },
         },
     }
 end

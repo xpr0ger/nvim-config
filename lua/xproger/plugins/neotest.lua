@@ -50,7 +50,7 @@ return {
                         test_table = true,
                     },
                     args = {
-                        "-tags='tests integration test mock lasting'",
+                        require("xproger.config.golang").build_tags,
                         "-coverprofile=" .. vim.fn.getcwd() .. "/build/cover.out",
                     },
                 }),
