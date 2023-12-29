@@ -31,6 +31,8 @@ vim.diagnostic.config({
         -- I should check this possibly later.
         prefix = "󱋉",
     },
+    underline = true,
+    update_in_insert = true,
 })
 
 for _, sign_info in pairs(signs) do

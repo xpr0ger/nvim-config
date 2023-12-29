@@ -18,10 +18,9 @@ vim.opt.rtp:prepend(lazypath)
 require("xproger.remap")
 
 -- Plugins
-local plugins = require("xproger.plugins")
 local utils_plugins = require("xproger.utils.plugins")
-local plugins_v2 = utils_plugins.loadPlugins("lua/xproger/plugins/*.lua")
-require("lazy").setup(plugins_v2)
+local plugins = utils_plugins.loadPlugins("lua/xproger/plugins/*.lua")
+require("lazy").setup(plugins)
 
 -- Applying additional settings related to nVim
 require("xproger.settings")
