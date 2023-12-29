@@ -1,5 +1,4 @@
 -- Bootstraping lazy.nvim package manager
-vim.inspect(Plugins)
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
     print("Installing lazy.vim to " .. lazypath)
@@ -17,10 +16,12 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Custom remapping
 require("xproger.remap")
-require("xproger.settings")
 
 -- Plugins
-plugins = require("xproger.plugins")
+local plugins = require("xproger.plugins")
 local utils_plugins = require("xproger.utils.plugins")
 local plugins_v2 = utils_plugins.loadPlugins("lua/xproger/plugins/*.lua")
 require("lazy").setup(plugins_v2)
+
+-- Applying additional settings related to nVim
+require("xproger.settings")
