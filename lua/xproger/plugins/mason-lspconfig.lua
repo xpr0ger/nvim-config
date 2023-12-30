@@ -42,6 +42,7 @@ return {
                     config["settings"] = {
                         gopls = {
                             buildFlags = { require("xproger.config.golang").build_tags },
+                            gofumpt = true,
                         },
                     }
                 end

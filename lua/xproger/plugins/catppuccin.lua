@@ -1,8 +1,11 @@
 return {
     "catppuccin/nvim",
     name = "catppuccin",
-    priority = 1000,
+    priority = 10000,
     opts = {
+        flavour = "frappe",
+        term_colors = true,
+
         integrations = {
             cmp = true,
             gitsigns = true,
@@ -45,7 +48,7 @@ return {
         },
     },
     config = function(_, opts)
-        require("catppuccin").setup(opts)
         vim.cmd("colorscheme catppuccin")
+        require("catppuccin").setup(opts)
     end,
 }

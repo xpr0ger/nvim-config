@@ -1,25 +1,44 @@
 local neotest_bindings = function(neotest, buffer)
+    -- TODO: Due to some issue only the very first run along with opening
+    -- panels causes issue for golang, neotest can not find test at all
+    local first_usage = true
+    local open_panels = function(run_fn)
+        return function()
+            if first_usage then
+                vim.fn.timer_start(1000, run_fn)
+                first_usage = false
+            else
+                run_fn()
+            end
+            neotest.summary.open()
+            neotest.output_panel.open()
+        end
+    end
+
     return {
-        T = {
+        t = {
             name = "Tests",
-            c = { neotest.run.run, "Run current test", noremap = false, buffer = buffer },
+            c = { open_panels(neotest.run.run), "Run current test", noremap = false, buffer = buffer },
             d = {
-                function()
+                open_panels(function()
                     neotest.run.run(vim.fn.expand("%"))
-                end,
+                end),
                 "Run test in directory",
                 noremap = false,
                 buffer = buffer,
             },
             p = {
-                function()
-                    neotest.run.run(vim.fn.getcwd())
-                end,
+                open_panels(function()
+                    -- TODO: Due to some reason does not work properly on first call or GoLang
+                    vim.fn.timer_start(1000, function()
+                        neotest.run.run(vim.fn.getcwd())
+                    end)
+                end),
                 "Run project tests",
                 noremap = false,
                 buffer = buffer,
             },
-            s = {
+            x = {
                 function()
                     neotest.run.stop()
                 end,
@@ -27,12 +46,46 @@ local neotest_bindings = function(neotest, buffer)
                 noremap = false,
                 buffer = buffer,
             },
+            i = {
+                name = "Panels",
+                o = {
+                    function()
+                        neotest.summary.open()
+                        neotest.output_panel.open()
+                    end,
+                    "Open",
+                    noremap = false,
+                    buffer = buffer,
+                },
+                c = {
+                    function()
+                        neotest.summary.close()
+                        neotest.output_panel.close()
+                    end,
+                    "Close",
+                    noremap = false,
+                    buffer = buffer,
+                },
+                S = {
+                    neotest.summary.toggle,
+                    "Toggle summary",
+                    noremap = false,
+                    buffer = buffer,
+                },
+                O = {
+                    neotest.output_panel.toggle,
+                    "Toggle output",
+                    noremap = false,
+                    buffer = buffer,
+                },
+            },
         },
     }
 end
 local opts_bindings = { prefix = "<leader>" }
 return {
     "nvim-neotest/neotest",
+    lazy = false,
     dependencies = {
         "nvim-lua/plenary.nvim",
         "nvim-treesitter/nvim-treesitter",
@@ -54,6 +107,12 @@ return {
                         "-coverprofile=" .. vim.fn.getcwd() .. "/build/cover.out",
                     },
                 }),
+            },
+            discovery = {
+                enabled = true,
+            },
+            running = {
+                concurrent = false,
             },
         }
         local neotest = require("neotest")
