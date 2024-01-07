@@ -103,7 +103,7 @@ return {
                         test_table = true,
                     },
                     args = {
-                        require("xproger.config.golang").build_tags,
+                        require("core.config.golang").build_tags,
                         "-coverprofile=" .. vim.fn.getcwd() .. "/build/cover.out",
                     },
                 }),

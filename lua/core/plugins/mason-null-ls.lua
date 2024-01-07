@@ -1,4 +1,4 @@
-local none_ls_config = require("xproger.config.none-ls")
+local none_ls_config = require("core.config.none-ls")
 return {
 	"jay-babu/mason-null-ls.nvim",
 	version = "^2.0.0",

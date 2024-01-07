@@ -3,15 +3,17 @@ return {
     dependencies = {
         "RRethy/nvim-base16",
         "nvim-tree/nvim-web-devicons",
+        "akinsho/bufferline.nvim",
     },
     opts = {
         options = {
+            globalstatus = true,
             icons_enabled = true,
             theme = "catppuccin",
             component_separators = { left = "", right = "" },
             section_separators = { left = "", right = "" },
 
-            disabled_filetypes = {
+            ignore_focus = {
                 "neo-tree",
                 "dapui_watches",
                 "dapui_stacks",
@@ -19,25 +21,18 @@ return {
                 "dapui_scopes",
                 "dapui_console",
                 "dap-repl",
+                "neotest-output-panel",
+                "neotest-summary",
+                "TelescopePrompt",
             },
         },
         -- OR in winbar
         winbar = {
-            lualine_c = {
+            lualine_a = {
                 {
                     "navic",
                     color_correction = nil,
                     navic_opts = nil,
-                },
-            },
-        },
-        tabline = {
-            lualine_a = {
-                {
-                    "buffers",
-                    symbols = {
-                        alternate_file = " ", -- Text to show to identify the alternate file
-                    },
                 },
             },
         },

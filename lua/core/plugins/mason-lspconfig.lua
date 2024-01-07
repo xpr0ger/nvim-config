@@ -41,7 +41,7 @@ return {
                 if server_name == "gopls" then
                     config["settings"] = {
                         gopls = {
-                            buildFlags = { require("xproger.config.golang").build_tags },
+                            buildFlags = { require("core.config.golang").build_tags },
                             gofumpt = true,
                         },
                     }

@@ -10,7 +10,7 @@ return {
             },
         },
         delve = {
-            build_flags = require("xproger.config.golang").build_tags,
+            build_flags = require("core.config.golang").build_tags,
         },
     },
     config = function(_, opts)

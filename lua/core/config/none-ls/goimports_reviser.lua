@@ -4,7 +4,7 @@ return function()
         args = {
             "-rm-unused",
             "-company-prefixes",
-            require("xproger.utils.golang").get_package_domain(),
+            require("core.utils").get_local_imports_prefix(),
             "$FILENAME",
         },
     }))

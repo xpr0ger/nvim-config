@@ -15,12 +15,11 @@ vim.opt.rtp:prepend(lazypath)
 -- End of bootstraping
 
 -- Custom remapping
-require("xproger.remap")
+require("core.config.vim.remap")
 
 -- Plugins
-local utils_plugins = require("xproger.utils.plugins")
-local plugins = utils_plugins.loadPlugins("lua/xproger/plugins/*.lua")
+local plugins = require("core.plugins").plugins
 require("lazy").setup(plugins)
 
 -- Applying additional settings related to nVim
-require("xproger.settings")
+require("core.config.vim.settings")
