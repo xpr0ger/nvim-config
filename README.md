@@ -10,8 +10,6 @@ Neovim configuration
 
 [ ] Change icons for debugging
 
-[ ] Change icons for diagnostic virtual text
-
 ## Requirements
 
 ### Applications
