@@ -15,6 +15,7 @@ return {
             "cssls",
             "templ",
             "denols",
+            "dockerls",
         },
     },
     config = function(_, opts)
