@@ -39,3 +39,9 @@ for _, sign_info in pairs(signs) do
     local hl = "DiagnosticSign" .. sign_info.name
     vim.fn.sign_define(hl, { text = sign_info.icon, texthl = hl, numhl = hl })
 end
+
+vim.filetype.add({
+    extension = {
+        templ = "templ",
+    },
+})

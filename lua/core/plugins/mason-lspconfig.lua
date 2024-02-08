@@ -16,6 +16,8 @@ return {
             "templ",
             "denols",
             "dockerls",
+            "htmx",
+            "docker_compose_language_service",
         },
     },
     config = function(_, opts)
@@ -35,7 +37,9 @@ return {
             function(server_name)
                 local config = {
                     on_attach = function(client, buffer)
-                        navic.attach(client, buffer)
+                        if server_name ~= "htmx" or server_name ~= "templ" then
+                            navic.attach(client, buffer)
+                        end
                     end,
                     capabilities = cmp_caps,
                 }
@@ -47,6 +51,11 @@ return {
                         },
                     }
                 end
+
+                if server_name == "html" or server_name == "htmx" or server_name == "templ" then
+                    config["filetypes"] = { "html", "templ" }
+                end
+
                 lspconfig[server_name].setup(config)
             end,
         })

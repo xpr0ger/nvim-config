@@ -24,6 +24,7 @@ return {
             "regex",
             "toml",
             "json",
+            "templ"
         },
         highlight = {
             enable = true,
