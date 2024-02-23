@@ -12,12 +12,13 @@ return {
             "jsonls",
             "bashls",
             "html",
+            "tsserver",
             "cssls",
             "templ",
-            "denols",
             "dockerls",
             "htmx",
             "docker_compose_language_service",
+            "tailwindcss",
         },
     },
     config = function(_, opts)
@@ -35,28 +36,9 @@ return {
 
         mason_lspconfig.setup_handlers({
             function(server_name)
-                local config = {
-                    on_attach = function(client, buffer)
-                        if server_name ~= "htmx" or server_name ~= "templ" then
-                            navic.attach(client, buffer)
-                        end
-                    end,
-                    capabilities = cmp_caps,
-                }
-                if server_name == "gopls" then
-                    config["settings"] = {
-                        gopls = {
-                            buildFlags = { require("core.config.golang").build_tags },
-                            gofumpt = true,
-                        },
-                    }
-                end
-
-                if server_name == "html" or server_name == "htmx" or server_name == "templ" then
-                    config["filetypes"] = { "html", "templ" }
-                end
-
-                lspconfig[server_name].setup(config)
+                local lsp_configs = require("core.config.lsp")
+                local config_fn = lsp_configs[server_name] or lsp_configs["default"]
+                lspconfig[server_name].setup(config_fn())
             end,
         })
     end,

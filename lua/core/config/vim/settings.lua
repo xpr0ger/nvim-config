@@ -31,6 +31,9 @@ vim.diagnostic.config({
         -- I should check this possibly later.
         prefix = "󱋉",
     },
+    float = {
+        source = true,
+    },
     underline = true,
     update_in_insert = true,
 })

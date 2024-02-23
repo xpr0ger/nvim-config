@@ -1,10 +1,15 @@
+local function lsp_diagnostic_bindings(telescope_builtin)
+    return {
+        ["[d"] = { vim.diagnostic.goto_prev, "Go to prev issue", noremap = false },
+        ["]d"] = { vim.diagnostic.goto_next, "Go to next issue", noremap = false },
+    }
+end
+
 local function lsp_bindings_global(telescope_builtin)
     return {
         l = {
             name = "LSP",
             d = { telescope_builtin.diagnostics, "Diagnostic window", noremap = false },
-            ["[d"] = { vim.diagnostic.goto_prev, "Go to prev issue", noremap = false },
-            ["]d"] = { vim.diagnostic.goto_next, "Go to next issue", noremap = false },
             q = { vim.diagnostic.setloclist, "Open loclist", noremap = false },
         },
     }
@@ -97,6 +102,7 @@ return {
     config = function()
         local wk = require("which-key")
         local telescope_builtin = require("telescope.builtin")
+        wk.register(lsp_diagnostic_bindings(telescope_builtin), {})
         wk.register(lsp_bindings_global(telescope_builtin), binding_opts)
         vim.api.nvim_create_autocmd("LspAttach", {
             group = vim.api.nvim_create_augroup("UserLspConfig", {}),
