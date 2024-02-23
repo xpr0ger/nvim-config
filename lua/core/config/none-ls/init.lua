@@ -1,10 +1,8 @@
-local goimports_reviser = require("core.config.none-ls.goimports_reviser")
-local cspell = require("core.config.none-ls.cspell")
-local markuplint = require("core.config.none-ls.markuplint")
 local config = {
-    ["goimports_reviser"] = goimports_reviser,
-    ["cspell"] = cspell,
-    ["markuplint"] = markuplint,
+    ["goimports_reviser"] = require("core.config.none-ls.goimports_reviser"),
+    ["cspell"] = require("core.config.none-ls.cspell"),
+    ["markuplint"] = require("core.config.none-ls.markuplint"),
+    ["stylelint"] = require("core.config.none-ls.stylelint"),
 }
 
 return config

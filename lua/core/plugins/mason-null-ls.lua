@@ -36,6 +36,9 @@ return {
             markuplint = function(_, _)
                 none_ls_config.markuplint()
             end,
+            stylelint = function(_, _)
+                none_ls_config.stylelint()
+            end,
         },
     },
     priority = 41,
