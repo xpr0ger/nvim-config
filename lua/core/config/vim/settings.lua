@@ -35,7 +35,7 @@ vim.diagnostic.config({
         source = true,
     },
     underline = true,
-    update_in_insert = true,
+    update_in_insert = false,
 })
 
 for _, sign_info in pairs(signs) do

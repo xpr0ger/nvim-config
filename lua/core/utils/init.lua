@@ -22,13 +22,17 @@ end
 ---Extract prefix for imports grouping form go.mod if exists
 ---@return string
 function M.get_local_imports_prefix()
+    return M.get_go_project_name():match("(.-/)")
+end
+
+function M.get_go_project_name()
     local gomod_filepath = vim.fn.getcwd() .. "/go.mod"
     local gomod_file_pointer = io.open(gomod_filepath, "r")
     if gomod_file_pointer == nil then
         return ""
     end
     local module_line = gomod_file_pointer:read()
-    return module_line:match("module (.-/.-/)")
+    return module_line:match("module (.*)")
 end
 
 return M
