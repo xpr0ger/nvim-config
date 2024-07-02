@@ -34,11 +34,14 @@ fn_confirm_action() {
 # Applying distro specific changes
 case "$DISTRO" in
     "archlinux")
-        source "${SCRIPT_DIR}/./archlinux.sh"
+        source "${SCRIPT_DIR}/archlinux.sh"
         ;;
     "fedora")
-        source "${SCRIPT_DIR}/./fedora.sh"
+        source "${SCRIPT_DIR}/fedora.sh"
         ;;
+    "ubuntu")
+        source "${SCRIPT_DIR}/ubuntu.sh"
+	;;
     *)
         echo "Unknown linux distribution name ${DISTRO}"
         ;;
@@ -71,6 +74,9 @@ fi
 # Configuring npm for neovim
 npm config set prefix '~/.local/'
 npm install -g neovim
+
+# Installing delve
+go install github.com/go-delve/delve/cmd/dlv@latest
 
 NPM_BIN_PATH="${HOME}/.local/bin"
 if [[ "$PATH" != *"${NPM_BIN_PATH}"* ]] then

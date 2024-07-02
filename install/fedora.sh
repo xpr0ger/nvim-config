@@ -12,7 +12,8 @@ Would you like to proceed?
 EOL)"
 
 # Installing system packages yay package manager required
-sudo dnf install neovim \
+sudo dnf install \
+    luarocks \
     unzip \
     go \
     git \

@@ -1,31 +1,30 @@
-# !/bin/bash
-
-if ! command -v pacman &> /dev/null; then
+#!/bin/bash
+if ! command -v apt-get &> /dev/null; then
     echo "pacman command required to proceed"
     exit 1
 fi
 
 fn_confirm_action "$(cat << EOL 
 Starting installation
-Next step will prompt you for password to install pacman packages
+Next step will prompt you for password to install packages
 Would you like to proceed?
 EOL)"
 
-
 # Installing system packages yay package manager required
-sudo pacman --needed -Syu \
+sudo apt-get install \
     luarocks \
     unzip \
-    go \
+    golang \
     git \
     cargo \
     npm \
     nodejs \
-    python-pip \
-    python-neovim \
+    python3-pip \
     ripgrep \
-    fd
+    fd-find
 
-if [ "$SSH_SESSION" != "" ]; then
-    sudo pacman --needed -Syu xclip
+pip3 install --break-system-package --user neovim
+
+if [ "$SSH_SESSION" == "" ]; then
+    sudo apt-get install xclip
 fi
