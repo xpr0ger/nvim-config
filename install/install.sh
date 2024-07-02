@@ -44,6 +44,7 @@ case "$DISTRO" in
 	;;
     *)
         echo "Unknown linux distribution name ${DISTRO}"
+        exit 1
         ;;
 esac
 
