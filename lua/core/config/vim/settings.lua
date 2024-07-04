@@ -5,6 +5,7 @@ vim.o.shiftwidth = 4
 vim.o.termguicolors = true
 vim.wo.relativenumber = true
 vim.o.cursorline = true
+vim.o.clipboard = "unnamed"
 vim.opt.listchars = {
     space = "·",
     tab = "╴╴󰌒",
