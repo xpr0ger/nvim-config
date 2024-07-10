@@ -48,7 +48,7 @@ return {
         },
     },
     config = function(_, opts)
-        vim.cmd("colorscheme catppuccin-frappe")
         require("catppuccin").setup(opts)
+        vim.cmd("colorscheme catppuccin-frappe")
     end,
 }
