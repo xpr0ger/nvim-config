@@ -1,100 +1,135 @@
 local function lsp_diagnostic_bindings(telescope_builtin)
     return {
-        ["[d"] = { vim.diagnostic.goto_prev, "Go to prev issue", noremap = false },
-        ["]d"] = { vim.diagnostic.goto_next, "Go to next issue", noremap = false },
+        { "[d", vim.diagnostic.goto_prev, desc = "Go to prev issue", noremap = false },
+        { "]d", vim.diagnostic.goto_next, desc = "Go to next issue", noremap = false },
     }
 end
 
 local function lsp_bindings_global(telescope_builtin)
     return {
-        l = {
-            name = "LSP",
-            d = { telescope_builtin.diagnostics, "Diagnostic window", noremap = false },
-            q = { vim.diagnostic.setloclist, "Open loclist", noremap = false },
-        },
+        { "<leader>l",  group = "LSP" },
+        { "<leader>ld", telescope_builtin.diagnostics, desc = "Diagnostic window", noremap = false },
+        { "<leader>lD", telescope_builtin.setloclist,  desc = "Open loclist",      noremap = false },
     }
 end
 
 local function lsp_bindings(buffer, telescope_builtin)
     return {
-        l = {
-            name = "LSP",
-            g = {
-                name = "Go To",
-                D = { vim.lsp.buf.declaration, "Go To Declaration", noremap = false, buffer = buffer },
-                d = { telescope_builtin.lsp_definitions, "Go To Definition", noremap = false, buffer = buffer },
-                t = {
-                    telescope_builtin.lsp_type_definitions,
-                    "Go To Type Definition",
-                    noremap = false,
-                    buffer = buffer,
-                },
-                r = { telescope_builtin.lsp_references, "Go To References", noremap = false, buffer = buffer },
-                i = { telescope_builtin.lsp_implementations, "Go To Implementation", noremap = false, buffer = buffer },
-                c = {
-                    name = "Calls",
-                    i = {
-                        telescope_builtin.lsp_incoming_calls,
-                        "List incoming class",
-                        noremap = false,
-                        buffer = buffer,
-                    },
-                    o = {
-                        telescope_builtin.lsp_outgoing_calls,
-                        "List outgoing class",
-                        noremap = false,
-                        buffer = buffer,
-                    },
-                },
-            },
+        { "<leader>l",  group = "LSP" },
+        { "<leader>lg", group = "Go To" },
+        {
+            "<leader>lgD",
+            vim.lsp.buf.declaration,
+            desc = "Go To Declaration",
+            noremap = false,
+            buffer = buffer,
+        },
+        {
+            "<leader>lgd",
+            telescope_builtin.lsp_definitions,
+            desc = "Go To Definition",
+            noremap = false,
+            buffer = buffer,
+        },
+        {
+            "<leader>lgt",
+            telescope_builtin.lsp_type_definitions,
+            desc = "Go To Type Definition",
+            noremap = false,
+            buffer = buffer,
+        },
+        {
+            "<leader>lgr",
+            telescope_builtin.lsp_references,
+            desc = "Go To References",
+            noremap = false,
+            buffer = buffer,
+        },
+        {
+            "<leader>lgi",
+            telescope_builtin.lsp_implementations,
+            desc = "Go To Implementation",
+            noremap = false,
+            buffer = buffer,
+        },
+        { "<leader>lgc", group = "Calls" },
+        {
+            "<leader>lgci",
+            telescope_builtin.lsp_incoming_calls,
+            desc = "List incoming class",
+            noremap = false,
+            buffer = buffer,
+        },
+        {
+            "<leader>lgco",
+            telescope_builtin.lsp_outgoing_calls,
+            desc = "List outgoing class",
+            noremap = false,
+            buffer = buffer,
+        },
+        {
+            "<leader>lD",
+            vim.lsp.signature_help,
+            desc = "Signature help",
+            noremap = false,
+            buffer = buffer,
+        },
+        { "<leader>ls",  group = "Symbols" },
+        {
+            "<leader>lsd",
+            telescope_builtin.lsp_document_symbols,
+            desc = "Document symbols",
+            noremap = false,
+            buffer = buffer,
+        },
+        {
+            "<leader>lsw",
+            telescope_builtin.lsp_dynamic_workspace_symbols,
+            desc = "Workspace symbols",
+            noremap = false,
+            buffer = buffer,
+        },
 
-            h = { vim.lsp.buf.hover, "Hover", noremap = false, buffer = buffer },
-            S = { vim.lsp.buf.signature_help, "Signature Help", noremap = false, buffer = buffer },
-            s = {
-                name = "Symbols",
-                d = { telescope_builtin.lsp_document_symbols, "Document symbols", noremap = false, buffer = buffer },
-                w = {
-                    telescope_builtin.lsp_dynamic_workspace_symbols,
-                    "Workspace symbols",
-                    noremap = false,
-                    buffer = buffer,
-                },
-            },
-            w = {
-                Name = "Workspace",
+        { "<leader>lw",  group = "Workspace" },
+        {
+            "<leader>lwa",
+            telescope_builtin.add_workspace_folder,
+            desc = "Add Workspace Folder",
+            noremap = false,
+            buffer = buffer,
+        },
+        {
+            "<leader>lwr",
+            telescope_builtin.remove_workspace_folder,
+            desc = "Remove Workspace Folder",
+            noremap = false,
+            buffer = buffer,
+        },
+        {
+            "<leader>lwl",
+            function()
+                print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+            end,
+            desc = "Remove Workspace Folder",
+            noremap = false,
+            buffer = buffer,
+        },
 
-                a = { vim.lsp.buf.add_workspace_folder, "Add Workspace Folder", noremap = false, buffer = buffer },
-                r = { vim.lsp.buf.remove_workspace_folder, "Remove Workspace Folder", noremap = false, buffer = buffer },
-                l = {
-                    function()
-                        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-                    end,
-                    "Remove Workspace Folder",
-                    noremap = false,
-                    buffer = buffer,
-                },
-            },
-            a = {
-                name = "Action",
+        { "<leader>la",  group = "Actions" },
 
-                r = { vim.lsp.buf.rename, "Rename symbol", noremap = false, buffer = buffer },
-                c = { vim.lsp.buf.code_action, "Code Actions", noremap = false, buffer = buffer },
-                f = {
-                    function()
-                        vim.lsp.buf.format({ async = true })
-                    end,
-                    "Format",
-                    noremap = false,
-                    buffer = buffer,
-                },
-            },
+        { "<leader>lar", vim.lsp.buf.rename,      desc = "Rename symbol", noremap = false, buffer = buffer },
+        { "<leader>lac", vim.lsp.buf.code_action, desc = "Code Actions",  noremap = false, buffer = buffer },
+        {
+            "<leader>laf",
+            function()
+                vim.lsp.buf.format({ async = true })
+            end,
+            desc = "Format",
+            noremap = false,
+            buffer = buffer,
         },
     }
 end
-
-local binding_opts = {
-    prefix = "<leader>",
-}
 
 return {
     "neovim/nvim-lspconfig",
@@ -102,13 +137,13 @@ return {
     config = function()
         local wk = require("which-key")
         local telescope_builtin = require("telescope.builtin")
-        wk.register(lsp_diagnostic_bindings(telescope_builtin), {})
-        wk.register(lsp_bindings_global(telescope_builtin), binding_opts)
+        wk.add(lsp_diagnostic_bindings(telescope_builtin))
+        wk.add(lsp_bindings_global(telescope_builtin))
         vim.api.nvim_create_autocmd("LspAttach", {
             group = vim.api.nvim_create_augroup("UserLspConfig", {}),
             callback = function(ev)
                 vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-                wk.register(lsp_bindings(ev.buf, telescope_builtin), binding_opts)
+                wk.add(lsp_bindings(ev.buf, telescope_builtin))
             end,
         })
     end,

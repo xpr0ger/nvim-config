@@ -12,9 +12,9 @@ return {
         local wk = require("which-key")
         hover.setup(opts)
 
-        wk.register({
-            K = { hover.hover, "Hover", noremap = false },
-            ["gK"] = { hover.hover_select, "Hover select", noremap = false },
+        wk.add({
+            { "<leader>lh", hover.hover,        desc = "Hover",                 noremap = false },
+            { "<leader>lH", hover.hover_select, desc = "Select hover provider", noremap = false },
         })
     end,
 }

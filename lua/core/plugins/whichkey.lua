@@ -1,5 +1,9 @@
 return {
     "folke/which-key.nvim",
+    dependencies = {
+        "echasnovski/mini.nvim",
+        version = false,
+    },
     event = "VeryLazy",
     config = function(_, opts)
         local vk = require("which-key")

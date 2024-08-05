@@ -24,33 +24,28 @@ return {
                 if vim.bo[ev.buf].filetype ~= "go" then
                     return nil
                 end
-
-                wk.register({
-                    d = {
-                        name = "Debug",
-                        g = {
-                            name = "golang",
-                            c = {
-                                function()
-                                    require("dapui").open()
-                                    dap_go.debug_test()
-                                end,
-                                "Debug closest test",
-                                noremap = false,
-                                buffer = ev.buf,
-                            },
-                            l = {
-                                function()
-                                    require("dapui").open()
-                                    dap_go.debug_last_test()
-                                end,
-                                "Debug last test",
-                                noremap = false,
-                                buffer = ev.buf,
-                            },
-                        },
+                wk.add({
+                    { "<leader>d",  group = "Debug" },
+                    { "<leader>dg", group = "GoLang" },
+                    {
+                        "<leader>dgc",
+                        function()
+                            require("dapui").open()
+                            dap_go.debug_test()
+                        end,
+                        desc = "Debug closest test",
+                        noremap = true,
                     },
-                }, { prefix = "<leader>" })
+                    {
+                        "<leader>dgl",
+                        function()
+                            require("dapui").open()
+                            dap_go.debug_last_test()
+                        end,
+                        desc = "Debug latest test",
+                        noremap = true,
+                    },
+                })
             end,
         })
     end,

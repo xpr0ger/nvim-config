@@ -26,17 +26,17 @@ return {
         },
     },
     config = function(_, opts)
-        require("neo-tree").setup(opts)
+        local neotree = require("neo-tree")
+        neotree.setup(opts)
+
         local wk = require("which-key")
-        wk.register({
-            e = {
-                name = "Explore",
-                t = { "<cmd>Neotree filesystem toggle<cr>", "Toggle", noremap = false },
-                f = { "<cmd>Neotree filesystem focus<cr>", "Focus", noremap = false },
-                g = { "<cmd>Neotree git_status float<cr>", "Git", noremap = false },
-                b = { "<cmd>Neotree buffers float<cr>", "Buffers", noremap = false },
-                s = { "<cmd>Neotree document_symbols float<cr>", "Symbols", noremap = false },
-            },
-        }, { prefix = "<leader>" })
+        wk.add({
+            { "<leader>e",  group = "Explore" },
+            { "<leader>et", "<cmd>Neotree filesystem toggle<cr>",      desc = "Toggle",  noremap = false },
+            { "<leader>ef", "<cmd>Neotree filesystem focus<cr>",       desc = "Focus",   noremap = false },
+            { "<leader>eg", "<cmd>Neotree git_status float<cr>",       desc = "Git",     noremap = false },
+            { "<leader>eb", "<cmd>Neotree buffers float<cr>",          desc = "Buffers", noremap = false },
+            { "<leader>es", "<cmd>Neotree document_symbols float<cr>", desc = "Symbols", noremap = false },
+        })
     end,
 }

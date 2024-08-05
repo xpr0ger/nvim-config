@@ -6,18 +6,19 @@ end
 
 local function global_bindings(builtin)
     return {
-        f = {
-            name = "Find (Telescope)",
-            f = { builtin.find_files, "File", noremap = false },
-            w = { with_current_word(builtin.live_grep), "Word", noremap = false },
-            b = { builtin.buffers, "Buffers", noremap = false },
-            h = { builtin.help_tags, "Help", noremap = false },
-            W = { with_current_word(builtin.grep_string), "Current word", noremap = false },
+        { "<leader>f",  group = "Find (Telescope)" },
+        { "<leader>ff", builtin.find_files,                   desc = "Files",    noremap = false },
+        { "<leader>fw", with_current_word(builtin.live_grep), desc = "Word",    noremap = false },
+        { "<leader>fb", builtin.buffers,                      desc = "Buffers", noremap = false },
+        { "<leader>fh", builtin.help_tags,                    desc = "Help",    noremap = false },
+        {
+            "<leader>fW",
+            with_current_word(builtin.grep_string),
+            desc = "Current word",
+            noremap = false,
         },
     }
 end
-
-local opts_bindings = { prefix = "<leader>" }
 
 return {
     "nvim-telescope/telescope.nvim",
@@ -30,6 +31,6 @@ return {
         local wk = require("which-key")
         local builtin = require("telescope.builtin")
 
-        wk.register(global_bindings(builtin), opts_bindings)
+        wk.add(global_bindings(builtin))
     end,
 }

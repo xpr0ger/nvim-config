@@ -16,73 +16,57 @@ local neotest_bindings = function(neotest, buffer)
     end
 
     return {
-        t = {
-            name = "Tests",
-            c = { open_panels(neotest.run.run), "Run current test", noremap = false, buffer = buffer },
-            d = {
-                open_panels(function()
-                    neotest.run.run(vim.fn.expand("%"))
-                end),
-                "Run test in directory",
-                noremap = false,
-                buffer = buffer,
-            },
-            p = {
-                open_panels(function()
-                    -- TODO: Due to some reason does not work properly on first call or GoLang
-                    vim.fn.timer_start(1000, function()
-                        neotest.run.run(vim.fn.getcwd())
-                    end)
-                end),
-                "Run project tests",
-                noremap = false,
-                buffer = buffer,
-            },
-            x = {
-                function()
-                    neotest.run.stop()
-                end,
-                "Stop tests",
-                noremap = false,
-                buffer = buffer,
-            },
-            i = {
-                name = "Panels",
-                o = {
-                    function()
-                        neotest.summary.open()
-                        neotest.output_panel.open()
-                    end,
-                    "Open",
-                    noremap = false,
-                    buffer = buffer,
-                },
-                c = {
-                    function()
-                        neotest.summary.close()
-                        neotest.output_panel.close()
-                    end,
-                    "Close",
-                    noremap = false,
-                    buffer = buffer,
-                },
-                S = {
-                    neotest.summary.toggle,
-                    "Toggle summary",
-                    noremap = false,
-                    buffer = buffer,
-                },
-                O = {
-                    neotest.output_panel.toggle,
-                    "Toggle output",
-                    noremap = false,
-                    buffer = buffer,
-                },
-            },
+        { "<leader>t",  group = "Tests" },
+        { "<leader>tc", open_panels(neotest.run.run), desc = "Run current test", noremap = false, buffer = buffer },
+        {
+            "<leader>td",
+            open_panels(function()
+                neotest.run.run(vim.fn.expand("%"))
+            end),
+            desc = "Run tests in directory",
+            noremap = false,
+            buffer = buffer,
         },
+
+        {
+            "<leader>tp",
+            open_panels(function()
+                -- TODO: Due to some reason does not work properly on first call or GoLang
+                vim.fn.timer_start(1000, function()
+                    neotest.run.run(vim.fn.getcwd())
+                end)
+            end),
+            desc = "Run current test",
+            noremap = false,
+            buffer = buffer,
+        },
+        { "<leader>tx", neotest.run.stop, desc = "Stop tests", noremap = false, buffer = buffer },
+        { "<leader>ti", group = "Panels" },
+        {
+            "<leader>tio",
+            function()
+                neotest.summary.open()
+                neotest.output_panel.open()
+            end,
+            desc = "Open",
+            noremap = false,
+            buffer = buffer,
+        },
+        {
+            "<leader>tic",
+            function()
+                neotest.summary.close()
+                neotest.output_panel.close()
+            end,
+            desc = "Close",
+            noremap = false,
+            buffer = buffer,
+        },
+        { "<leader>tis", neotest.summary.toggle,      desc = "Toggle summary", noremap = false, buffer = buffer },
+        { "<leader>tiO", neotest.output_panel.toggle, desc = "Toggle output",  noremap = false, buffer = buffer },
     }
 end
-local opts_bindings = { prefix = "<leader>" }
+
 return {
     "nvim-neotest/neotest",
     lazy = false,
@@ -129,7 +113,7 @@ return {
         vim.api.nvim_create_autocmd("LspAttach", {
             group = vim.api.nvim_create_augroup("UseNeovimLsp", {}),
             callback = function(ev)
-                wk.register(neotest_bindings(neotest, ev.buf), opts_bindings)
+                wk.add(neotest_bindings(neotest, ev.buf))
             end,
         })
     end,

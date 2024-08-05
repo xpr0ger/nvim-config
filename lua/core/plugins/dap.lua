@@ -1,63 +1,63 @@
 local navigation_bindings = function(dap, buffer)
     return {
-        d = {
-            name = "Debug",
-            b = {
-                name = "Breakpoint",
-                t = { dap.toggle_breakpoint, "Toggle breakpoint", noremap = false, buffer = buffer },
-                s = { dap.set_breakpoint, "Setup breakpoint", noremap = false, buffer = buffer },
-                l = {
-                    function()
-                        dap.set_breakpoint(nil, nil, vim.fn.input("Log breakpoint message:"))
-                    end,
-                    "Log breakpoint",
-                    noremap = false,
-                    buffer = buffer,
-                },
-            },
-            s = { dap.repl_open, "Repl", noremap = false, buffer = buffer },
-            l = {
-                function()
-                    require("dapui").open()
-                    dap.run_last()
-                end,
-                "Run last",
-                noremap = false,
-                buffer = buffer,
-            },
-            u = { require("dapui").toggle, "Toggle Debug UI", noremap = true, buffer = buffer },
+        { "<leader>db",  group = "Breakpoint" },
+        { "<leader>dbt", dap.toggle_breakpoint, desc = "Toggle breakpoint", noremap = true, buffer = buffer },
+        { "<leader>dbs", dap.set_breakpoint,    desc = "Setup breakpoint",  noremap = true, buffer = buffer },
+        {
+            "<leader>dbl",
+            function()
+                dap.set_breakpoint(nil, nil, vim.fn.input("Log breakpoint message:"))
+            end,
+
+            desc = "Log breakpoint",
+            noremap = true,
+            buffer = buffer,
+        },
+
+        { "<leader>ds", dap.repl_open,           desc = "Repl",            noremap = true, buffer = buffer },
+        { "<leader>du", require("dapui").toggle, desc = "Toggle Debug UI", noremap = true, buffer = buffer },
+        {
+            "<leader>dl",
+            function()
+                require("dapui").open()
+                dap.run_last()
+            end,
+            desc = "Run last test",
+            noremap = true,
+            buffer = buffer,
         },
     }
 end
 
 local general_bindings = function(dap, buffer)
     return {
-        ["<F5>"] = {
+        {
+            "<F5>",
             function()
                 require("dapui").open()
                 dap.continue()
             end,
-            "Debug: Start/Continue",
-            noremap = false,
+
+            desc = "Debug: Start Continue",
+            noremap = true,
             buffer = buffer,
         },
-        ["<F6>"] = {
+        {
+            "<F6>",
             function()
                 require("dapui").close()
                 dap.close()
             end,
-            "Debug: Stop",
+            desc = "Debug: stop",
             noremap = false,
             buffer = buffer,
         },
-        ["<F9>"] = { dap.step_back, "Debug: Step back", noremap = false, buffer = buffer },
-        ["<F10>"] = { dap.step_over, "Debug: Step over", noremap = false, buffer = buffer },
-        ["<F11>"] = { dap.step_into, "Debug: Step into", noremap = false, buffer = buffer },
-        ["<F12>"] = { dap.step_out, "Debug: Step out", noremap = false, buffer = buffer },
+        { "<F7>",  dap.step_into, desc = "Debug: Step into", noremap = false, buffer = buffer },
+        { "<F8>",  dap.step_over, desc = "Debug: Step over", noremap = false, buffer = buffer },
+        { "<F9>",  dap.step_back, desc = "Debug: Step back", noremap = false, buffer = buffer },
+        { "<F10>", dap.step_out,  desc = "Debug: Step out",  noremap = false, buffer = buffer },
     }
 end
-
-local binding_opts = { prefix = "<leader>" }
 
 return {
     "mfussenegger/nvim-dap",
@@ -69,8 +69,8 @@ return {
         vim.api.nvim_create_autocmd("LspAttach", {
             group = vim.api.nvim_create_augroup("UserDapConfig", {}),
             callback = function(ev)
-                wk.register(navigation_bindings(dap, ev.buf), binding_opts)
-                wk.register(general_bindings(dap, ev.buf), {})
+                wk.add(navigation_bindings(dap, ev.buf))
+                wk.add(general_bindings(dap, ev.buf))
             end,
         })
     end,

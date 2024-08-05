@@ -3,7 +3,11 @@ return {
     dependencies = {
         "kevinhwang91/promise-async",
     },
-    opts = {},
+    opts = {
+        provider_selector = function(bufnr, filetype, buftype)
+            return { "treesitter", "indent" }
+        end,
+    },
     config = function(_, opts)
         local ufo = require("ufo")
         local wk = require("which-key")
@@ -14,39 +18,14 @@ return {
         vim.o.foldenable = true
 
         ufo.setup(opts)
-        wk.register({
-            K = {
-                function()
-                    local winId = ufo.peekFoldedLinesUnderCursor()
-                    if not winId then
-                        vim.lsp.buf.hover()
-                    end
-                end,
-                "Hover",
-                noremap = false,
+        wk.add({
+            {
+                { "<leader>z",  group = "UFO Folds" },
+                { "<leader>zR", ufo.openAllFolds,         desc = "Open all folds",  noremap = false },
+                { "<leader>zM", ufo.closeAllFolds,        desc = "Close all folds", noremap = false },
+                { "<leader>zr", ufo.openFoldsExceptKinds, desc = "Fold less",       noremap = false },
+                { "<leader>zm", ufo.closeFoldsWith,       desc = "Fold more",       noremap = false },
             },
-            z = {
-                R = {
-                    ufo.openAllFolds,
-                    "Open all folds",
-                    noremap = false,
-                },
-                M = {
-                    ufo.closeAllFolds,
-                    "Close all folds",
-                    noremap = false,
-                },
-                r = {
-                    ufo.openFoldsExceptKinds,
-                    "Fold less",
-                    noremap = false,
-                },
-                m = {
-                    ufo.closeFoldsWith,
-                    "Fold more",
-                    noremap = false,
-                },
-            },
-        }, {})
+        })
     end,
 }
