@@ -42,6 +42,9 @@ case "$DISTRO" in
     "ubuntu")
         source "${SCRIPT_DIR}/ubuntu.sh"
 	;;
+    "cloudtop")
+        source "${SCRIPT_DIR}/cloudtop.sh"
+    ;;  
     *)
         echo "Unknown linux distribution name ${DISTRO}"
         exit 1
@@ -80,7 +83,7 @@ npm install -g neovim
 go install github.com/go-delve/delve/cmd/dlv@latest
 
 NPM_BIN_PATH="${HOME}/.local/bin"
-if [[ "$PATH" != *"${NPM_BIN_PATH}"* ]] then
+if [[ "$PATH" != *"$NPM_BIN_PATH"* ]] then
     echo -e "\033[0;31mYou have to add '${NPM_BIN_PATH}' to your PATH variable\033[0m"
 fi
 

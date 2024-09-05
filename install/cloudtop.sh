@@ -1,6 +1,6 @@
 #!/bin/bash
 if ! command -v apt-get &> /dev/null; then
-    echo "pacman command required to proceed"
+    echo "apt-get command required to proceed"
     exit 1
 fi
 
@@ -25,7 +25,3 @@ sudo apt-get install \
     fd-find
 
 pip3 install --break-system-package --user neovim
-
-if [ "$SSH_SESSION" == "" ]; then
-    sudo apt-get install xclip
-fi
