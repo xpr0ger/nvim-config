@@ -12,7 +12,7 @@ return {
             "jsonls",
             "bashls",
             "html",
-            "tsserver",
+            "ts_ls",
             "cssls",
             "templ",
             "dockerls",

@@ -10,7 +10,7 @@ return {
         ensure_installed = {
             "stylua",
             "cspell",
-            "golangci_lint",
+            -- "golangci_lint",
             "json",
             "yaml",
             "bash",
@@ -24,6 +24,7 @@ return {
             "prettier",
             "stylelint",
             "jsonlint",
+            "gomodifytags",
         },
 
         handlers = {
