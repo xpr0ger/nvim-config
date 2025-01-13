@@ -19,6 +19,9 @@ return {
             "htmx",
             "docker_compose_language_service",
             "tailwindcss",
+            -- See https://github.com/sqls-server/sqls?tab=readme-ov-file#configuration-methods
+            "sqls",
+            "volar",
         },
     },
     config = function(_, opts)

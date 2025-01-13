@@ -4,6 +4,7 @@ return {
     build = ":TSUpdate",
     main = "nvim-treesitter.configs",
     opts = {
+        auto_install = true,
         indent = {
             enable = true,
         },
@@ -28,11 +29,18 @@ return {
             "regex",
             "toml",
             "json",
-            "templ"
+            "templ",
+            "python",
+            "dot",
+            "dockerfile",
+            "markdown",
+            "sql",
+            "http",
+            "vue",
         },
         highlight = {
             enable = true,
-            additional_vim_regex_highlighting = false,
+            additional_vim_regex_highlighting = true,
         },
         matchup = {
             enabled = true,

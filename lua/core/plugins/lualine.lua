@@ -26,6 +26,9 @@ return {
                 "TelescopePrompt",
             },
         },
+        sections = {
+            lualine_c = { { "filename", path = 1 } },
+        },
         -- OR in winbar
         winbar = {
             lualine_a = {
@@ -35,6 +38,7 @@ return {
                     navic_opts = nil,
                 },
             },
+            lualine_z = { "hostname" },
         },
     },
 }
