@@ -28,6 +28,7 @@ return {
             "jsonlint",
             "gomodifytags",
             "sqlfluff",
+            "cmake",
         },
 
         handlers = {

@@ -5,7 +5,7 @@ return function()
         gopls = {
             buildFlags = { require("core.config.golang").build_tags },
             gofumpt = true,
-            usePlaceholders = true,
+            usePlaceholders = false,
             symbolScope = "workspace",
             ["local"] = require("core.utils").get_local_imports_prefix(),
         },

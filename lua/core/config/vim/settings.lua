@@ -17,6 +17,8 @@ vim.opt.listchars = {
 }
 vim.opt.list = true
 vim.opt.showbreak = "↪"
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 local signs = {
     [vim.diagnostic.severity.HINT] = { icon = "󰟶", name = "Hint" },
@@ -28,9 +30,20 @@ local signs = {
 vim.diagnostic.config({
     severity_sort = true,
     virtual_text = {
-        -- TODO: According to documentation can accept a function, but now it does not work.
-        -- I should check this possibly later.
-        prefix = "󱋉",
+        prefix = function(diagnostic)
+            local severity = diagnostic.severity
+            if severity == vim.diagnostic.severity.ERROR then
+                return ""
+            elseif severity == vim.diagnostic.severity.WARN then
+                return ""
+            elseif severity == vim.diagnostic.severity.INFO then
+                return "󰋼"
+            elseif severity == vim.diagnostic.severity.HINT then
+                return "󰟶"
+            else
+                return ""
+            end
+        end,
     },
     float = {
         source = true,

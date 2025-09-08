@@ -21,7 +21,8 @@ return {
             "tailwindcss",
             -- See https://github.com/sqls-server/sqls?tab=readme-ov-file#configuration-methods
             "sqls",
-            "volar",
+            "clangd",
+            "cmake",
         },
     },
     config = function(_, opts)
@@ -29,20 +30,16 @@ return {
         mason_lspconfig.setup(opts)
 
         local cmp_caps = require("cmp_nvim_lsp").default_capabilities()
-        local lspconfig = require("lspconfig")
 
         cmp_caps.textDocument.foldingRange = {
             dynamicRegistration = false,
             lineFoldingOnly = true,
         }
 
-        mason_lspconfig.setup_handlers({
-            function(server_name)
-                local lsp_configs = require("core.config.lsp")
-                local config_fn = lsp_configs[server_name] or lsp_configs["default"]
-                lspconfig[server_name].setup(config_fn())
-            end,
-        })
+        local lsp_configs = require("core.config.lsp")
+        for lsp_server_name, lsp_server_config_fn in pairs(lsp_configs) do
+            vim.lsp.config(lsp_server_name, lsp_server_config_fn())
+        end
     end,
     priority = 41,
 }

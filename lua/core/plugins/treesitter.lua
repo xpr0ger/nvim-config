@@ -37,6 +37,9 @@ return {
             "sql",
             "http",
             "vue",
+            "cpp",
+            "c",
+            "cmake",
         },
         highlight = {
             enable = true,

@@ -19,7 +19,7 @@ require("core.config.vim.remap")
 
 -- Plugins
 local plugins = require("core.plugins").plugins
-require("lazy").setup(plugins)
+require("lazy").setup(plugins, { git = { throttle = { enabled = true, rate = 1, duration = 5 * 1000 } } })
 
 -- Applying additional settings related to nVim
 require("core.config.vim.settings")

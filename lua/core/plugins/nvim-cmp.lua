@@ -31,13 +31,14 @@ return {
             mapping = {
                 ["<Up>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
                 ["<Down>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
-                ["<S-TAB>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
-                ["<TAB>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+                ["<S-TAB>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
+                ["<TAB>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
                 ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
                 ["<CR>"] = cmp.mapping.confirm({ select = true }),
             },
             sources = cmp.config.sources({
                 { name = "nvim_lsp", priority = 1000 },
+                { name = "lazydev",  priority = 850 },
                 { name = "vsnip",    priority = 750 },
                 { name = "buffer",   priority = 500 },
                 { name = "path",     priority = 500 },

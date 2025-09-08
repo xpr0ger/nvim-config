@@ -7,5 +7,4 @@ return {
     ["tailwindcss"] = require("core.config.lsp.tailwindcss"),
     ["cssls"] = require("core.config.lsp.cssls"),
     ["sqls"] = require("core.config.lsp.sqls"),
-    ["volar"] = require("core.config.lsp.volar"),
 }
