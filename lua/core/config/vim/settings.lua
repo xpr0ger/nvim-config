@@ -5,7 +5,7 @@ vim.o.shiftwidth = 4
 vim.o.termguicolors = true
 vim.wo.relativenumber = true
 vim.o.cursorline = true
-vim.o.clipboard = "unnamed"
+vim.o.clipboard = "unnamedplus"
 vim.opt.listchars = {
     space = "·",
     tab = "╴╴󰌒",
@@ -19,13 +19,6 @@ vim.opt.list = true
 vim.opt.showbreak = "↪"
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-
-local signs = {
-    [vim.diagnostic.severity.HINT] = { icon = "󰟶", name = "Hint" },
-    [vim.diagnostic.severity.INFO] = { icon = "󰋼", name = "Info" },
-    [vim.diagnostic.severity.WARN] = { icon = "", name = "Warn" },
-    [vim.diagnostic.severity.ERROR] = { icon = "", name = "Error" },
-}
 
 vim.diagnostic.config({
     severity_sort = true,
@@ -45,17 +38,33 @@ vim.diagnostic.config({
             end
         end,
     },
+    signs = {
+        text = {
+            [vim.diagnostic.severity.HINT] = "󰟶",
+            [vim.diagnostic.severity.INFO] = "󰋼",
+            [vim.diagnostic.severity.WARN] = "",
+            [vim.diagnostic.severity.ERROR] = "",
+        },
+        linehl = {
+            [vim.diagnostic.severity.HINT] = "Hint",
+            [vim.diagnostic.severity.INFO] = "Info",
+            [vim.diagnostic.severity.WARN] = "Warn",
+            [vim.diagnostic.severity.ERROR] = "Error",
+        },
+
+        numhl = {
+            [vim.diagnostic.severity.HINT] = "Hint",
+            [vim.diagnostic.severity.INFO] = "Info",
+            [vim.diagnostic.severity.WARN] = "Warn",
+            [vim.diagnostic.severity.ERROR] = "Error",
+        },
+    },
     float = {
         source = true,
     },
     underline = true,
-    update_in_insert = false,
+    update_in_insert = true,
 })
-
-for _, sign_info in pairs(signs) do
-    local hl = "DiagnosticSign" .. sign_info.name
-    vim.fn.sign_define(hl, { text = sign_info.icon, texthl = hl, numhl = hl })
-end
 
 vim.filetype.add({
     extension = {
