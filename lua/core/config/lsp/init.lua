@@ -7,4 +7,6 @@ return {
     ["tailwindcss"] = require("core.config.lsp.tailwindcss"),
     ["cssls"] = require("core.config.lsp.cssls"),
     ["sqls"] = require("core.config.lsp.sqls"),
+    ["ansiblels"] = require("core.config.lsp.ansiblels"),
+    ["ts_ls"] = require("core.config.lsp.ts_ls"),
 }

@@ -6,6 +6,10 @@ return {
     opts = {
         lsp = {
             auto_attach = true,
+            preference = {
+                "vue_ls",
+                "ts_ls",
+            }
         },
         highlight = true,
     },
