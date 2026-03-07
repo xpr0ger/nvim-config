@@ -1,16 +1,17 @@
-# !/bin/bash
+#!/bin/bash
 
-if ! command -v pacman &> /dev/null; then
+if ! command -v pacman &>/dev/null; then
     echo "pacman command required to proceed"
     exit 1
 fi
 
-fn_confirm_action "$(cat << EOL 
+fn_confirm_action "$(
+    cat <<EOL
 Starting installation
 Next step will prompt you for password to install pacman packages
 Would you like to proceed?
-EOL)"
-
+EOL
+)"
 
 # Installing system packages yay package manager required
 sudo pacman --needed -Syu \
@@ -25,7 +26,3 @@ sudo pacman --needed -Syu \
     python-neovim \
     ripgrep \
     fd
-
-if [ "$SSH_SESSION" != "" ]; then
-    sudo pacman --needed -Syu xclip
-fi

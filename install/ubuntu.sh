@@ -1,10 +1,11 @@
 #!/bin/bash
-if ! command -v apt-get &> /dev/null; then
+if ! command -v apt-get &>/dev/null; then
     echo "pacman command required to proceed"
     exit 1
 fi
 
-fn_confirm_action "$(cat << EOL 
+fn_confirm_action "$(
+    cat <<EOL
 Starting installation
 Next step will prompt you for password to install packages
 Would you like to proceed?
@@ -25,7 +26,3 @@ sudo apt-get install \
     fd-find
 
 pip3 install --break-system-package --user neovim
-
-if [ "$SSH_SESSION" == "" ]; then
-    sudo apt-get install xclip
-fi

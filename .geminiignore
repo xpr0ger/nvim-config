@@ -1,0 +1,19 @@
+# Gemini CLI Ignore Patterns
+
+# Version Control
+.git/
+
+# Neovim / Plugin State
+lazy-lock.json
+.netrwhist
+undo/
+backup/
+swap/
+
+# Temporary Files
+*.tmp
+*.log
+
+# Documentation
+README.md
+LICENSE

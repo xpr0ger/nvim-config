@@ -1,0 +1,15 @@
+{
+    "mcpServers": {
+        "nvim-server": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "mcp-neovim-server"
+            ],
+            "env": {
+                "NVIM_SOCKET_PATH": "/tmp/nvim",
+                "ALLOW_SHELL_COMMANDS": "true"
+            }
+        }
+    }
+}
