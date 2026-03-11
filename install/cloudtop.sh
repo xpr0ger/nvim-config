@@ -1,10 +1,11 @@
 #!/bin/bash
-if ! command -v apt-get &> /dev/null; then
+if ! command -v apt-get &>/dev/null; then
     echo "apt-get command required to proceed"
     exit 1
 fi
 
-fn_confirm_action "$(cat << EOL 
+fn_confirm_action "$(
+    cat <<EOL
 Starting installation
 Next step will prompt you for password to install packages
 Would you like to proceed?

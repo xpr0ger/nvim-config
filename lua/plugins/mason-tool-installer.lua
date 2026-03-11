@@ -1,0 +1,28 @@
+return {
+	"WhoIsSethDaniel/mason-tool-installer.nvim",
+	dependencies = {
+		"mason-org/mason.nvim",
+	},
+	opts = {
+		ensure_installed = {
+			"stylua",
+			"goimports-reviser",
+			"gofumpt",
+			"golines",
+			"prettierd",
+			"sqlfluff",
+			"shfmt",
+			"golangci-lint",
+			"shellcheck",
+			"ansible-lint",
+			"jsonlint",
+			"markdownlint",
+			"gomodifytags",
+			"impl",
+			"iferr",
+			"gotests",
+			"delve",
+		},
+		auto_install = true,
+	},
+}
