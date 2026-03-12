@@ -16,13 +16,16 @@ return {
 				end
 
 				local ts_config = require("nvim-treesitter.config")
-				local installed = ts_config.get_installed("parser")
+				local installed = ts_config.get_installed("parsers")
 				if not vim.tbl_contains(installed, lang) then
 					vim.notify(
-						"Treesitter parser for current file type '"
-							.. lang
-							.. "' is available but not installed. Please check your configuration"
+						"Treesitter parser for current file type '" .. lang .. "' will be installed.",
+						vim.log.levels.WARN
 					)
+
+					local ts = require("nvim-treesitter")
+					ts.install(lang)
+
 					return
 				end
 
@@ -35,43 +38,5 @@ return {
 		vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 		vim.opt.foldlevel = 99
 		vim.opt.foldtext = ""
-	end,
-	config = function()
-		local ts = require("nvim-treesitter")
-
-		ts.install({
-			"lua",
-			"vim",
-			"vimdoc",
-			"javascript",
-			"ssh_config",
-			"css",
-			"scss",
-			"typescript",
-			"html",
-			"bash",
-			"go",
-			"gomod",
-			"make",
-			"xml",
-			"gowork",
-			"gosum",
-			"json",
-			"yaml",
-			"regex",
-			"toml",
-			"json",
-			"templ",
-			"python",
-			"dot",
-			"dockerfile",
-			"markdown",
-			"markdown_inline",
-			"sql",
-			"http",
-			"vue",
-			"cpp",
-			"c",
-		})
 	end,
 }
