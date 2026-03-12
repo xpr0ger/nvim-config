@@ -22,6 +22,8 @@ return {
 			"iferr",
 			"gotests",
 			"delve",
+			"prettierd",
+			"prettier",
 		},
 		auto_install = true,
 	},
