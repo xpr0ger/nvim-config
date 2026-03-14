@@ -6,6 +6,8 @@ return {
 		linters_by_ft = {
 			go = { "golangcilint" },
 			sh = { "shellcheck" },
+			bash = { "shellcheck" },
+			zsh = { "shellcheck" },
 			ansible = { "ansible_lint" },
 			yaml = { "ansible_lint" },
 			json = { "jsonlint" },

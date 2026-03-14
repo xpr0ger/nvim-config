@@ -18,6 +18,8 @@ return {
 			markdown = { "prettierd", "prettier", stop_after_first = true },
 			sql = { "sqlfluff" },
 			bash = { "shfmt" },
+			sh = { "shfmt" },
+			zsh = { "shfmt" },
 			python = { "ruff_organize_imports", "ruff_format" },
 		},
 		format_on_save = function(bufnr)
