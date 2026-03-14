@@ -1,0 +1,2 @@
+- [ ] Install tree-sitter-cli during initial setup
+- [ ] Create script to update external dependencies

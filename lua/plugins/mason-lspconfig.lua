@@ -26,6 +26,8 @@ return {
 			"clangd",
 			"ansiblels",
 			"typos_lsp",
+			"basedpyright",
+			"ruff",
 		},
 	},
 	-- TODO: Move to init

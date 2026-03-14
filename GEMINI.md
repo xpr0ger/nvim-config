@@ -46,6 +46,7 @@ This is list of list that are used in current configuration. Refer to the links 
 - [nvim-dap](https://github.com/mfussenegger/nvim-dap): Debug Adapter Protocol client for Neovim.
 - [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui): A UI for nvim-dap.
 - [nvim-dap-go](https://github.com/leoluz/nvim-dap-go): Extension for nvim-dap providing configurations for go.
+- [nvim-dap-python](https://github.com/mfussenegger/nvim-dap-python): Extension for nvim-dap providing configurations for python.
 - [nvim-dap-virtual-text](https://github.com/theHamsta/nvim-dap-virtual-text): Virtual text support for nvim-dap.
 - [mason-lspconfig.nvim](https://github.com/mason-org/mason-lspconfig.nvim): Wrapper for `masson.nvim` that provides automatic intgration and UI for different LSP servers.
 - [mason-tool-installer.nvim](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim): Install and upgrade third-party tools (LSP, DAP, linters, formatters) managed by Mason.
@@ -54,6 +55,7 @@ This is list of list that are used in current configuration. Refer to the links 
 - [minuet-ai.nvim](https://github.com/milanglacier/minuet-ai.nvim): High-performance AI code completion plugin.
 - [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim): For file browsing, object outliner and basic git operations.
 - [neotest](https://github.com/nvim-neotest/neotest): A framework for interacting with tests within Neovim.
+- [neotest-python](https://github.com/nvim-neotest/neotest-python): A neotest adapter for python.
 - [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig): Provides integration with variuse LSP servers.
 - [nvim-lualine](https://github.com/nvim-lualine/lualine.nvim): Status line for neovim.
 - [nvim-lint](https://github.com/mfussenegger/nvim-lint): An asynchronous linter plugin for Neovim.
@@ -61,4 +63,5 @@ This is list of list that are used in current configuration. Refer to the links 
 - [nvim-autopairs](https://github.com/windwp/nvim-autopairs): For automatic closing of brackets and quotes.
 - [nvim-treesitter](nvim-treesitter/nvim-treesitter): Plugin to enable syntax syntax highlighting.
 - [telescope](https://github.com/nvim-telescope/telescope.nvim): Plugin for fuzzy search.
+- [venv-selector.nvim](https://github.com/linux-cultist/venv-selector.nvim): Plugin for virtual environment management.
 - [which-key.nvim](https://github.com/folke/which-key.nvim): Used for keys hinting and mapping.

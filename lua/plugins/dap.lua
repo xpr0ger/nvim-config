@@ -4,6 +4,7 @@ return {
 		"rcarriga/nvim-dap-ui",
 		"theHamsta/nvim-dap-virtual-text",
 		"leoluz/nvim-dap-go",
+		"mfussenegger/nvim-dap-python",
 	},
 	keys = function()
 		return require("config.keys.dap").get_global_bindings()
@@ -41,5 +42,9 @@ return {
 		dap.listeners.after.event_initialized["open_ui"] = function()
 			dapui.open()
 		end
+
+		local dap_python = require("dap-python")
+		local mason_path = vim.fn.stdpath("data") .. "/mason"
+		dap_python.setup(mason_path .. "/packages/debugpy/venv/bin/python")
 	end,
 }

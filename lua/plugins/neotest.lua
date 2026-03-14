@@ -7,6 +7,7 @@ return {
 		"antoinemadec/FixCursorHold.nvim",
 		"nvim-treesitter/nvim-treesitter",
 		"nvim-neotest/neotest-go",
+		"nvim-neotest/neotest-python",
 	},
 	init = function()
 		local neotest_ns = vim.api.nvim_create_namespace("neotest")
@@ -33,6 +34,9 @@ return {
 						require("config.golang").build_tags,
 						"-coverprofile=" .. vim.fn.getcwd() .. "/build/cover.out",
 					},
+				}),
+				require("neotest-python")({
+					dap = { justMyCode = false },
 				}),
 			},
 			discovery = {

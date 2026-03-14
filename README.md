@@ -7,9 +7,10 @@ A modular, high-performance Neovim configuration written in Lua, designed for pr
 - **Modular Architecture**: Clean separation of concerns with dedicated files for plugins, keymaps, and options.
 - **Advanced Completion**: Powered by `blink.cmp` with optional AI-driven completions via `minuet-ai.nvim` (Gemini integration).
 - **LSP & Formatting**: Robust LSP support via `nvim-lspconfig` and `mason.nvim`. Formatting is handled by `conform.nvim`.
-- **Debugging (DAP)**: Integrated debugger support for Go and other languages via `nvim-dap`, `nvim-dap-ui`, and `nvim-dap-go`.
+- **Debugging (DAP)**: Integrated debugger support for Go and Python via `nvim-dap`, `nvim-dap-ui`, `nvim-dap-go`, and `nvim-dap-python`.
 - **Modern UI**: Enhanced interface with `catppuccin` theme, `lualine`, `bufferline`, `neo-tree`, and `alpha-nvim` dashboard.
 - **Go Support**: Specialized tools for Go development, including `gopher.nvim`, `dap-go`, and custom formatting.
+- **Python Support**: Comprehensive Python environment with `basedpyright`, `ruff`, `neotest-python`, and virtual environment management.
 - **Dynamic Configuration**: Support for project-specific and user-level configuration via `nvim.yml` files.
 
 ## 📁 Project Structure
@@ -37,6 +38,7 @@ Ensure you have the following installed on your system:
 - `luarocks` (for Lua dependencies)
 - Node.js & npm (for certain LSP servers)
 - Go (if you plan to use Go-related features)
+- Python 3.10+ & `pip` (if you plan to use Python-related features)
 - Cargo (required for building `blink.cmp`)
 
 ### 2. Automatic Installation
@@ -91,6 +93,7 @@ The leader key is set to `<Space>`.
 - `<leader>ff`: Find files (Telescope)
 - `<leader>lg`: LazyGit (if configured)
 - `<leader>t`: Run tests (Neotest)
+- `<leader>cv`: Select VirtualEnv (Python only)
 
 Plugin-specific keybindings can be found in `lua/config/keys/`.
 

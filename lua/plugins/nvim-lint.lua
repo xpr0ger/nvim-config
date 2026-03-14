@@ -10,6 +10,7 @@ return {
 			yaml = { "ansible_lint" },
 			json = { "jsonlint" },
 			markdown = { "markdownlint" },
+			python = { "ruff" },
 		},
 	},
 	config = function(_, opts)

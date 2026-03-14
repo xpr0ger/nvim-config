@@ -24,6 +24,8 @@ return {
 			"delve",
 			"prettierd",
 			"prettier",
+			"debugpy",
+			"ruff",
 		},
 		auto_install = true,
 	},
