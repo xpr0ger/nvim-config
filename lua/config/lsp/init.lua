@@ -7,4 +7,5 @@ return {
 	["basedpyright"] = require("config.lsp.basedpyright"),
 	["ruff"] = require("config.lsp.ruff"),
 	["bashls"] = require("config.lsp.bashls"),
+	["jsonls"] = require("config.lsp.default"),
 }

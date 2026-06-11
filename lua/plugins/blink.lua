@@ -1,9 +1,12 @@
 local config = require("utils.config")
 return {
 	"saghen/blink.cmp",
-	build = "cargo build --release",
+	build = function()
+		require("blink.cmp").build():pwait()
+	end,
 	dependencies = {
 		"rafamadriz/friendly-snippets",
+		"saghen/blink.lib",
 	},
 
 	---@module 'blink.cmp'
