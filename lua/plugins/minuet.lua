@@ -6,13 +6,11 @@ return {
 	},
 	enabled = config.is_minuet_ai_enabled(),
 	opts = {
-		provider = "gemini",
+		provider = "ollama",
 		provider_options = {
-			gemini = {
-				model = config.get_config().gemini.model,
-				api_key = function()
-					return config.get_config().gemini.api_key
-				end,
+			ollama = {
+				model = config.get_config().ollama.model,
+				end_point = config.get_config().ollama.end_point,
 				stream = true,
 				system = {
 					prompt = "You are a helpful code completion assistant. Your task is to provide concise and accurate code completions based on the provided context. Follow the user's coding style and conventions.",

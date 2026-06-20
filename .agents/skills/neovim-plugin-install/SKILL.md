@@ -30,7 +30,7 @@ This skill handles the creation of a new plugin specification file for `lazy.nvi
 6. **Validation**:
    - Run `nvim --headless +qa` to check for syntax errors in the new configuration.
    - If the user is in an interactive session, remind them to run `:Lazy sync` to install the new plugin.
-7. **Update GEMINI.md**: Update `GEMINI.md` file accordingly, update plugin section and keep its alphabetical order. Check if anything else need to be updated or fixed in the file. 
+7. **Update AI_CONTEXT.md**: Update `AI_CONTEXT.md` file accordingly, update plugin section and keep its alphabetical order. Check if anything else need to be updated or fixed in the file. 
 5. **Finalize**: Confirm the file was created and providing a brief overview of where to add further configuration.
 
 ## Resources

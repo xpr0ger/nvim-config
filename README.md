@@ -33,6 +33,7 @@ A modular, high-performance Neovim configuration written in Lua, designed for pr
 ### 1. Prerequisites
 
 Ensure you have the following installed on your system:
+
 - Neovim (latest stable version)
 - Git
 - `luarocks` (for Lua dependencies)
@@ -54,6 +55,7 @@ cd install/
 ```
 
 The script will install:
+
 - Distro-specific dependencies
 - Nerd Fonts (MesloLGS NF)
 - `neovim` npm package
@@ -62,6 +64,7 @@ The script will install:
 ### 3. Environment Setup
 
 After installation, ensure the following paths are added to your `PATH` variable:
+
 - `~/.local/bin`
 - `~/go/bin`
 
@@ -110,4 +113,4 @@ Plugin-specific keybindings can be found in `lua/config/keys/`.
 - [minuet-ai.nvim](https://github.com/milanglacier/minuet-ai.nvim): AI code completion.
 - [catppuccin](https://github.com/catppuccin/nvim): Theme.
 
-For a full list of plugins, refer to `GEMINI.md`.
+For a full list of plugins, refer to `AI_CONTEXT.md`.
